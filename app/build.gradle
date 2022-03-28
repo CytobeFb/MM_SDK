@@ -32,5 +32,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    compile 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.github.Lingber:Android_DataGridView:1.01'
+    implementation 'com.google.code.gson:gson:2.6.2'
 }

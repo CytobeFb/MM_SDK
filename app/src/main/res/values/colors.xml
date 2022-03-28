@@ -151,6 +151,7 @@
     <color name="navy">#000080</color><!--海军色 -->
     <color name="black">#000000</color><!--黑色 -->
     <color name="transparent">#50000000</color>
+    <color name="themecolor">#33b9ff</color>
 
 
     <color name="text_blue">#298eee</color>

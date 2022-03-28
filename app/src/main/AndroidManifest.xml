@@ -1,26 +1,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.ad.demo">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.ad.demo">
 
     <!-- 蓝牙权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!-- Android 5.0以上蓝牙好需要位置权限 -->
     <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+            android:name="android.hardware.bluetooth_le"
+            android:required="true" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- USB通讯用 -->
     <uses-feature
-        android:name="android.hardware.usb.host"
-        android:required="true" />
+            android:name="android.hardware.usb.host"
+            android:required="true" />
+
     <uses-permission
-        android:name="android.permission.HARDWARE_TEST"
-        tools:ignore="ProtectedPermissions" />
+            android:name="android.permission.HARDWARE_TEST"
+            tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.hardware.usb.host" />
     <uses-permission android:name="android.hardware.usb.accessory" />
 
@@ -38,14 +40,23 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".base.BaseApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+            android:name=".base.BaseApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <!--<activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+        <activity
+                android:name=".business.BusinessMainActivity"
+                android:theme="@android:style/Theme.Light.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,67 +64,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".comm.ConnectBaseActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectBaseActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ConnectBleActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectBleActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ConnectSppActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectSppActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ConnectRs232Activity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectRs232Activity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ConnectTcpActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectTcpActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ConnectHidActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectHidActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ConnectCdcActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".comm.ConnectCdcActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".comm.ble.SppDeviceScanActivity"
-            android:configChanges="orientation|locale|keyboardHidden"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
+                android:name=".comm.ble.SppDeviceScanActivity"
+                android:configChanges="orientation|locale|keyboardHidden"
+                android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
 
         <activity
-            android:name=".comm.ble.BleDeviceScanActivity"
-            android:configChanges="orientation|locale|keyboardHidden"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
+                android:name=".comm.ble.BleDeviceScanActivity"
+                android:configChanges="orientation|locale|keyboardHidden"
+                android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
 
         <activity
-            android:name=".ProtocolActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".ProtocolActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-            android:name=".mm.MMMainActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".mm.MMMainActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".mm.MMDemoActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".mm.MMDemoActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".mm.MMISO6CActivity"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+                android:name=".mm.MMISO6CActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".mm.MMParaActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".mm.MMParaActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".mm.MMSeniorActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".mm.MMSeniorActivity"
+                android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".business.BusinessDemoActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"
-            android:windowSoftInputMode="adjustPan"></activity>
+                android:name=".business.BusinessRelationActivity"
+                android:theme="@android:style/Theme.Light.NoTitleBar"
+                android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+                android:name=".business.BusinessGongxuActivity"
+                android:theme="@android:style/Theme.Light.NoTitleBar"
+                android:windowSoftInputMode="adjustPan"></activity>
+
+        <!--<activity
+                android:name=".business.BusinessMainActivity"
+                android:theme="@android:style/Theme.Light.NoTitleBar"
+                android:windowSoftInputMode="adjustPan"></activity>-->
 
     </application>
 

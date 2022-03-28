@@ -150,4 +150,10 @@
     <string name="stop_for_tags">Stop for tags:</string>
     <string name="max_tag">Identify Tags:</string>
 
+    <string name="colom1">xuhao</string>
+    <string name="colom2">biaoqian</string>
+    <string name="colom3">kuanhao</string>
+    <string name="colom4">pinming</string>
+    <string name="colom5">yanse</string>
+    <string name="colom6">guige</string>
 </resources>

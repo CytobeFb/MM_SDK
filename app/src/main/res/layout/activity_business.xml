@@ -1,249 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/base_gradient_bg"
-    android:orientation="vertical">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp">
-
-        <TextView
-            android:id="@+id/tv_titel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="扫码关联" />
-
-        <TextView
-            android:id="@+id/tv_scan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:text="扫描"/>
-    </RelativeLayout>
-
-    <ListView
-        android:id="@+id/lv_data"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/base_boder"
-        android:divider="@color/magentared"
-        android:dividerHeight="1dp"
-        android:padding="2dp"
-        android:paddingLeft="@dimen/padding_05"
-        android:paddingRight="@dimen/padding_05" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_ensure"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="确定"/>
-
-        <TextView
-            android:id="@+id/tv_cancel"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="取消"/>
-    </LinearLayout>
-
-    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/base_gradient_bg"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/base_button_id"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_above="@+id/base_resid"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/padding_05"
-            android:paddingRight="@dimen/padding_05">
+            android:layout_height="48dp">
 
-            <TextView
-                android:id="@+id/base_button_identify"
+        <TextView
+                android:id="@+id/tv_titel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="24sp"
+                android:text="扫码关联" />
+
+        <TextView
+                android:id="@+id/tv_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:text="扫描" />
+    </RelativeLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+        <com.lingber.mycontrol.datagridview.DataGridView
+                android:id="@+id/datagridview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/base_button_selector"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="@string/btn_command"
-                android:textSize="@dimen/textsize_12"
-                android:textStyle="bold" />
+                app:show_header="true"
+                app:row_height="200"
+                app:dividerSize="2"></com.lingber.mycontrol.datagridview.DataGridView>
+    </ScrollView>
 
-            <TextView
-                android:id="@+id/base_button_clear"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="@drawable/base_button_selector"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/btn_clr"
-                android:textSize="@dimen/textsize_12"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/base_resid"
+    <ListView
+            android:id="@+id/lv_data"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerVertical="true"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_05"
-            android:paddingLeft="@dimen/padding_05"
-            android:paddingRight="@dimen/padding_05"
-            android:paddingTop="@dimen/padding_02">
-
-            <TextView
-                android:id="@+id/base_res_value"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/base_editbox_background"
-                android:clickable="true"
-                android:gravity="left|center"
-                android:paddingLeft="@dimen/padding_05"
-                android:textSize="@dimen/textsize_12"
-                android:textStyle="bold"
-                tools:ignore="RtlHardcoded,RtlSymmetry" />
-        </LinearLayout>
-
-        <ListView
-            android:id="@+id/demo_listvalue"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@+id/base_button_id"
-            android:layout_below="@+id/listitem_title"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@drawable/base_boder"
             android:divider="@color/magentared"
             android:dividerHeight="1dp"
             android:padding="2dp"
+            android:visibility="gone"
             android:paddingLeft="@dimen/padding_05"
-            android:paddingRight="@dimen/padding_05">
+            android:paddingRight="@dimen/padding_05" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:gravity="center">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/tv_ensure"
+                android:layout_width="96dp"
+                android:layout_height="48dp"
+                android:background="@drawable/business_button_selector"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:text="确定" />
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="96dp"
+                android:layout_height="48dp"
+                android:background="@drawable/business_button_selector"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:text="取消" />
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/base_gradient_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+        <LinearLayout
+                android:id="@+id/base_button_id"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_above="@+id/base_resid"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/padding_05"
+                android:paddingRight="@dimen/padding_05">
+
+            <TextView
+                    android:id="@+id/base_button_identify"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/base_button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@string/btn_command"
+                    android:textSize="@dimen/textsize_12"
+                    android:textStyle="bold" />
+
+            <TextView
+                    android:id="@+id/base_button_clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/base_button_selector"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/btn_clr"
+                    android:textSize="@dimen/textsize_12"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/base_resid"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_05"
+                android:paddingLeft="@dimen/padding_05"
+                android:paddingRight="@dimen/padding_05"
+                android:paddingTop="@dimen/padding_02">
+
+            <TextView
+                    android:id="@+id/base_res_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/base_editbox_background"
+                    android:clickable="true"
+                    android:gravity="left|center"
+                    android:paddingLeft="@dimen/padding_05"
+                    android:textSize="@dimen/textsize_12"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+        </LinearLayout>
+
+        <ListView
+                android:id="@+id/demo_listvalue"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/base_button_id"
+                android:layout_below="@+id/listitem_title"
+                android:background="@drawable/base_boder"
+                android:divider="@color/magentared"
+                android:dividerHeight="1dp"
+                android:padding="2dp"
+                android:paddingLeft="@dimen/padding_05"
+                android:paddingRight="@dimen/padding_05">
 
         </ListView>
 
         <!--按键-->
         <RelativeLayout
-            android:id="@+id/listitem_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/listitem_top"
-            android:background="@drawable/base_boder"
-            android:orientation="vertical">
+                android:id="@+id/listitem_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listitem_top"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical">
 
             <include layout="@layout/listitem_pcepc_item" />
         </RelativeLayout>
 
         <!--通讯信息显示-->
         <RelativeLayout
-            android:id="@+id/listitem_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/base_boder"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_02">
+                android:id="@+id/listitem_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/base_boder"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
 
             <EditText
-                android:id="@+id/listitem_counttag_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:background="@drawable/base_editbox_background"
-                android:gravity="center"
-                android:importantForAutofill="no"
-                android:inputType="number|numberDecimal"
-                android:minWidth="64dp"
-                android:text="20"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textsize_20" />
+                    android:id="@+id/listitem_counttag_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/base_editbox_background"
+                    android:gravity="center"
+                    android:importantForAutofill="no"
+                    android:inputType="number|numberDecimal"
+                    android:minWidth="64dp"
+                    android:text="20"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_20" />
 
             <TextView
-                android:id="@+id/listitem_maxtag_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_toRightOf="@id/base_demo_para_settings"
-                android:gravity="center"
-                android:minWidth="32dp"
-                android:text="@string/max_tag"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textsize_12" />
+                    android:id="@+id/listitem_maxtag_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_toRightOf="@id/base_demo_para_settings"
+                    android:gravity="center"
+                    android:minWidth="32dp"
+                    android:text="@string/max_tag"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_12" />
 
             <TextView
-                android:id="@+id/listitem_maxtag_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_toEndOf="@+id/listitem_maxtag_name"
-                android:background="@drawable/base_editbox_background"
-                android:gravity="center"
-                android:minWidth="64dp"
-                android:text="0"
-                android:textColor="@color/red"
-                android:textSize="@dimen/textsize_20" />
+                    android:id="@+id/listitem_maxtag_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_toEndOf="@+id/listitem_maxtag_name"
+                    android:background="@drawable/base_editbox_background"
+                    android:gravity="center"
+                    android:minWidth="64dp"
+                    android:text="0"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/textsize_20" />
 
             <TextView
-                android:id="@+id/listitem_counttag_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_toLeftOf="@+id/listitem_counttag_value"
-                android:gravity="center"
-                android:minWidth="32dp"
-                android:text="@string/stop_for_tags"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textsize_12" />
+                    android:id="@+id/listitem_counttag_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_toLeftOf="@+id/listitem_counttag_value"
+                    android:gravity="center"
+                    android:minWidth="32dp"
+                    android:text="@string/stop_for_tags"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_12" />
 
             <TextView
-                android:id="@+id/base_demo_para_settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/base_button_background"
-                android:clickable="true"
-                android:gravity="center"
-                android:minWidth="80dp"
-                android:text="@string/btn_para"
-                android:textSize="@dimen/textsize_16"
-                android:textStyle="bold" />
+                    android:id="@+id/base_demo_para_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/base_button_background"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:minWidth="80dp"
+                    android:text="@string/btn_para"
+                    android:textSize="@dimen/textsize_16"
+                    android:textStyle="bold" />
         </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

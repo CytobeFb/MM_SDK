@@ -1,21 +1,23 @@
 package com.ad.demo.business;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ad.demo.PubDemoParaActivity;
 import com.ad.demo.R;
 import com.ad.demo.base.BaseApplication;
+import com.ad.demo.bean.CheckBean;
+import com.ad.demo.bean.RelationListBean;
 import com.ad.demo.utils.ConverterUtil;
 import com.ad.demo.utils.MessageUtil;
 import com.ad.demo.utils.PreferenceUtil;
@@ -31,21 +33,25 @@ import com.ad.rcp.TagID;
 import com.ad.sio.OnCommListener;
 import com.ad.sio.SioBase;
 import com.ad.sio.StatusEventArg;
+import com.google.gson.Gson;
+import com.lingber.mycontrol.datagridview.DataGridView;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
+import com.lzy.okgo.request.base.Request;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by endyc on 2018-06-20.
  */
 
-public class BusinessDemoActivity extends Activity {
+public class BusinessRelationActivity extends Activity {
 
     //-------------------TAG ID show short id--------
     //
@@ -84,11 +90,13 @@ public class BusinessDemoActivity extends Activity {
     private TextView mStoptagTextView;
     private ListView mDataListView;
     private ListView lv_data;
+    private DataGridView mDataGridView;
     private TextView tv_scan;
     private TextView tv_titel;
     private TextView tv_ensure,tv_cancel;
     private ArrayList<TagID> mTagIDArrayList = new ArrayList<TagID>();
     private ArrayList<Map<String, Object>> mDataListMap;
+    private List<RelationListBean.DataBean> relationList=new ArrayList<>();
     private RecvRunnable hmR = null;
     //-------------------define function------------
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -156,6 +164,7 @@ public class BusinessDemoActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         getLabelForGoods(ids);
                     }
+                    getLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
                     break;
                 case R.id.tv_ensure:
                     if (!mTagIDArrayList.isEmpty()) {
@@ -166,6 +175,7 @@ public class BusinessDemoActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         confirmOrderForGoods(ids,"d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
                     }
+                    confirmOrderForGoods("0000090000000002EBFB06BC,000008000000000000000000","d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
                     break;
                 case R.id.tv_cancel:
                     if (!mTagIDArrayList.isEmpty()) {
@@ -176,6 +186,7 @@ public class BusinessDemoActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         cancelOrderForGoods(ids);
                     }
+                    cancelOrderForGoods("000008000000000000000000");
                     break;
             }
         }
@@ -258,6 +269,7 @@ public class BusinessDemoActivity extends Activity {
     private void initUI() {
         tv_titel=findViewById(R.id.tv_titel);
         lv_data=findViewById(R.id.lv_data);
+        mDataGridView = findViewById(R.id.datagridview);
         tv_scan=findViewById(R.id.tv_scan);
         tv_ensure=findViewById(R.id.tv_ensure);
         tv_cancel=findViewById(R.id.tv_cancel);
@@ -276,6 +288,27 @@ public class BusinessDemoActivity extends Activity {
 
         mDataListView = (ListView) findViewById(R.id.demo_listvalue);
 
+        // 设置列数
+        mDataGridView.setColunms(6);
+        // 设置表头内容
+        mDataGridView.setHeaderContentByStringId(new int[]{R.string.colom1, R.string.colom2, R.string.colom3
+                , R.string.colom4, R.string.colom5, R.string.colom6});
+        // 绑定字段
+        mDataGridView.setFieldNames(new String[]{"rowNumber","tagName","kuanhao","productName","color","guige"});
+        // 每个column占比
+        mDataGridView.setColunmWeight(new float[]{1,2,2,3,2,2});
+        // 每个单元格包含控件
+        mDataGridView.setCellContentView(new Class[]{TextView.class, TextView.class, TextView.class, TextView.class, TextView.class, TextView.class});
+        // 设置数据源
+        mDataGridView.setDataSource(relationList);
+        // 单行选中模式
+        mDataGridView.setSelectedMode(1);
+        mDataGridView.setHeaderHeight(100);
+        // 启用翻页
+//        mDataGridView.setFlipOverEnable(true, 9, getFragmentManager());
+        // 初始化表格
+        mDataGridView.initDataGridView();
+
 /*
         mDataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -292,7 +325,7 @@ public class BusinessDemoActivity extends Activity {
             }
         });
 */
-        new Handler().postDelayed(new Runnable() {
+        /*new Handler().postDelayed(new Runnable() {
             public void run() {
                 try {
                     Command(RcpMM.RCP_MM_PARA, RcpBase.RCP_MSG_GET);
@@ -301,7 +334,7 @@ public class BusinessDemoActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        }, 100);
+        }, 100);*/
         changeAutoRead2();
     }
 
@@ -318,7 +351,7 @@ public class BusinessDemoActivity extends Activity {
         WakeLockUtil.KeepScreenOn(this);//禁止锁屏
         SoundPoolUtil.initSoundPool(mContext);
 
-        baseinfo_init();
+//        baseinfo_init();
 
         initUI();
 
@@ -672,9 +705,12 @@ public class BusinessDemoActivity extends Activity {
 
 
     public void getLabelForGoods(String ids){
+        relationList=new ArrayList<>();
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setCanceledOnTouchOutside(false);
         HttpParams params=new HttpParams();
         params.put("ids",ids);
-        if (BaseApplication.isNetworkAvailable(BusinessDemoActivity.this)) {
+        if (BaseApplication.isNetworkAvailable(BusinessRelationActivity.this)) {
             OkGo.<String>post(UrlUtils.LABEL_FOR_GOODS)     // 请求方式和请求url
                     .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
                     .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
@@ -682,9 +718,23 @@ public class BusinessDemoActivity extends Activity {
                     .params(params)
                     .execute(new StringCallback() {
                         @Override
+                        public void onStart(Request<String, ? extends Request> request) {
+                            super.onStart(request);
+                            dialog.show();
+                        }
+
+                        @Override
                         public void onSuccess(Response<String> response) {
                             String s=response.body();
-                            Log.e("11111",s);
+                            dialog.dismiss();
+                            RelationListBean relationListBean = new Gson().fromJson(s, RelationListBean.class);
+                            if (relationListBean.isSuccess()){
+                                for (int i=0;i<relationListBean.getData().size();i++){
+                                    relationList.add(relationListBean.getData().get(i));
+                                }
+                                mDataGridView.setDataSource(relationList);
+                                mDataGridView.updateAll();
+                            }
                         }
                     });
         }
@@ -694,7 +744,7 @@ public class BusinessDemoActivity extends Activity {
         HttpParams params=new HttpParams();
         params.put("ids",ids);
         params.put("orderId",orderId);
-        if (BaseApplication.isNetworkAvailable(BusinessDemoActivity.this)) {
+        if (BaseApplication.isNetworkAvailable(BusinessRelationActivity.this)) {
             OkGo.<String>post(UrlUtils.CONFIRM_ORDER_FOR_GOODS)     // 请求方式和请求url
                     .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
                     .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
@@ -704,7 +754,19 @@ public class BusinessDemoActivity extends Activity {
                         @Override
                         public void onSuccess(Response<String> response) {
                             String s=response.body();
-                            Log.e("11111",s);
+                            CheckBean checkBean = new Gson().fromJson(s, CheckBean.class);
+                            if (checkBean.isSuccess()){
+                                if (!mTagIDArrayList.isEmpty()) {
+                                    String ids="";
+                                    for (int i=0;i<mTagIDArrayList.size();i++){
+                                        ids+=getShortTag(mTagIDArrayList.get(i).getEpc())+",";
+                                    }
+                                    ids=ids.substring(0,ids.length()-1);
+                                    getLabelForGoods(ids);
+                                }
+                            }else {
+                                Toast.makeText(BusinessRelationActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
         }
@@ -713,7 +775,7 @@ public class BusinessDemoActivity extends Activity {
     public void cancelOrderForGoods(String ids){
         HttpParams params=new HttpParams();
         params.put("ids",ids);
-        if (BaseApplication.isNetworkAvailable(BusinessDemoActivity.this)) {
+        if (BaseApplication.isNetworkAvailable(BusinessRelationActivity.this)) {
             OkGo.<String>post(UrlUtils.CANCEL_ORDER_FOR_GOODS)     // 请求方式和请求url
                     .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
                     .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
@@ -723,7 +785,19 @@ public class BusinessDemoActivity extends Activity {
                         @Override
                         public void onSuccess(Response<String> response) {
                             String s=response.body();
-                            Log.e("11111",s);
+                            CheckBean checkBean = new Gson().fromJson(s, CheckBean.class);
+                            if (checkBean.isSuccess()){
+                                if (!mTagIDArrayList.isEmpty()) {
+                                    String ids="";
+                                    for (int i=0;i<mTagIDArrayList.size();i++){
+                                        ids+=getShortTag(mTagIDArrayList.get(i).getEpc())+",";
+                                    }
+                                    ids=ids.substring(0,ids.length()-1);
+                                    getLabelForGoods(ids);
+                                }
+                            }else {
+                                Toast.makeText(BusinessRelationActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
         }
