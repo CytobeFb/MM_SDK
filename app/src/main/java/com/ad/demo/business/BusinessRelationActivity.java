@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -164,7 +165,7 @@ public class BusinessRelationActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         getLabelForGoods(ids);
                     }
-                    getLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
+//                    getLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
                     break;
                 case R.id.tv_ensure:
                     if (!mTagIDArrayList.isEmpty()) {
@@ -175,7 +176,7 @@ public class BusinessRelationActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         confirmOrderForGoods(ids,"d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
                     }
-                    confirmOrderForGoods("0000090000000002EBFB06BC,000008000000000000000000","d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
+//                    confirmOrderForGoods("0000090000000002EBFB06BC,000008000000000000000000","d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
                     break;
                 case R.id.tv_cancel:
                     if (!mTagIDArrayList.isEmpty()) {
@@ -186,7 +187,7 @@ public class BusinessRelationActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         cancelOrderForGoods(ids);
                     }
-                    cancelOrderForGoods("000008000000000000000000");
+//                    cancelOrderForGoods("000008000000000000000000");
                     break;
             }
         }
@@ -303,7 +304,7 @@ public class BusinessRelationActivity extends Activity {
         mDataGridView.setDataSource(relationList);
         // 单行选中模式
         mDataGridView.setSelectedMode(1);
-        mDataGridView.setHeaderHeight(100);
+        mDataGridView.setHeaderHeight(48);
         // 启用翻页
 //        mDataGridView.setFlipOverEnable(true, 9, getFragmentManager());
         // 初始化表格
@@ -325,7 +326,7 @@ public class BusinessRelationActivity extends Activity {
             }
         });
 */
-        /*new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             public void run() {
                 try {
                     Command(RcpMM.RCP_MM_PARA, RcpBase.RCP_MSG_GET);
@@ -334,7 +335,7 @@ public class BusinessRelationActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        }, 100);*/
+        }, 100);
         changeAutoRead2();
     }
 
@@ -351,7 +352,7 @@ public class BusinessRelationActivity extends Activity {
         WakeLockUtil.KeepScreenOn(this);//禁止锁屏
         SoundPoolUtil.initSoundPool(mContext);
 
-//        baseinfo_init();
+        baseinfo_init();
 
         initUI();
 

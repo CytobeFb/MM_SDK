@@ -34,7 +34,7 @@ public class BusinessMainActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent=new Intent(BusinessMainActivity.this, BusinessGongxuActivity.class);
-                        intent.putExtra("gongxuId",item[i]);
+                        intent.putExtra("gongxuId",(i+1)+"");
                         startActivity(intent);
                     }
                 })

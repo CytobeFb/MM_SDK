@@ -47,14 +47,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <!--<activity android:name=".MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
-        <activity
+        </activity>
+        <!--<activity
                 android:name=".business.BusinessMainActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar">
             <intent-filter>
@@ -62,7 +62,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity
                 android:name=".comm.ConnectBaseActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
@@ -129,10 +129,10 @@
                 android:theme="@android:style/Theme.Light.NoTitleBar"
                 android:windowSoftInputMode="adjustPan"></activity>
 
-        <!--<activity
+        <activity
                 android:name=".business.BusinessMainActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar"
-                android:windowSoftInputMode="adjustPan"></activity>-->
+                android:windowSoftInputMode="adjustPan"></activity>
 
     </application>
 

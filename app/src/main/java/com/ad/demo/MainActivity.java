@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.ad.demo.base.BaseApplication;
+import com.ad.demo.business.BusinessMainActivity;
 import com.ad.demo.business.BusinessRelationActivity;
 import com.ad.demo.utils.MessageUtil;
 import com.ad.demo.utils.PreferenceUtil;
@@ -77,7 +78,7 @@ public class MainActivity extends Activity {
                     if (!mRcpBase.getMode().contains("M") && !mRcpBase.getMode().contains("Q")) {
                         MessageUtil.List("读卡器与SDK不匹配,请联系厂家", mBaseRes);
                     } else {
-                        startActivity(new Intent().setClass(getApplicationContext(), BusinessRelationActivity.class));
+                        startActivity(new Intent().setClass(getApplicationContext(), BusinessMainActivity.class));
                     }
                     break;
             }
