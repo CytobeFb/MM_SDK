@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_gradient_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--参数-->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/base_button_id"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin_05"
+        android:fadingEdge="horizontal"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:id="@+id/custom_para_id"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <!--modulation-->
+            <LinearLayout
+                android:id="@+id/senior_modulation_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+
+                <LinearLayout
+                    android:id="@+id/senior_modulation_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/senior_modulation_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_modulation"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/senior_modulation_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_modulation"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/senior_modulation_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/senior_modulation_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/senior_modulation_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--power-->
+            <LinearLayout
+                android:id="@+id/senior_power_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+
+                <LinearLayout
+                    android:id="@+id/senior_power_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/senior_power_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_power"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/senior_power_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/senior_power_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/senior_power_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/senior_power_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--hopsettings-->
+            <LinearLayout
+                android:id="@+id/senior_hopsettings_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+                <!--readtime-->
+
+                <!--idletime-->
+
+                <!--cwsensetime-->
+
+                <!--lbrflevel-->
+
+                <!--freqhopping-->
+                <LinearLayout
+                    android:id="@+id/senior_freqhopping_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/senior_freqhopping_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/tv_mm_freqhopping" />
+
+                </LinearLayout>
+                <!--button-->
+                <LinearLayout
+                    android:id="@+id/senior_hopsettings_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/senior_hopsettings_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/senior_hopsettings_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--region-->
+            <LinearLayout
+                android:id="@+id/senior_region_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+
+                <LinearLayout
+                    android:id="@+id/senior_region_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/senior_region_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_region"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/senior_region_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_region"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/senior_region_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/senior_region_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/senior_region_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--channel-->
+            <LinearLayout
+                android:id="@+id/senior_channel_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+
+                <LinearLayout
+                    android:id="@+id/senior_channel_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/senior_channel_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_channel"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/senior_channel_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/senior_channel_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/senior_channel_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/senior_channel_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--按键-->
+    <LinearLayout
+        android:id="@+id/base_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_above="@+id/base_resid"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_05"
+        android:paddingRight="@dimen/padding_05">
+
+        <TextView
+            android:id="@+id/base_button_reset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/padding_02"
+            android:layout_weight="1"
+            android:background="@drawable/base_button_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/btn_reset"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/base_button_erase"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/padding_02"
+            android:layout_weight="1"
+            android:background="@drawable/base_button_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/btn_erase"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/base_button_update"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/base_button_selector"
+            android:clickable="true"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/btn_update"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--通讯信息显示-->
+    <LinearLayout
+        android:id="@+id/base_resid"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_05"
+        android:paddingTop="@dimen/padding_02"
+        android:paddingRight="@dimen/padding_05"
+        android:paddingBottom="@dimen/padding_05">
+
+        <TextView
+            android:id="@+id/base_res_value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/base_editbox_background"
+            android:clickable="true"
+            android:gravity="left|center"
+            android:paddingLeft="@dimen/padding_05"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RFIDDemo(MM)</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="goon">Go on</string>
+    <string name="switchwifi">Switch</string>
+    <string name="alert_diag_title">Attention</string>
+    <string name="are_you_sure_to_exit">Are you sure to exit?</string>
+    <string name="are_you_sure_to_erase">Are you reset internal parameters?</string>
+    <string name="are_you_sure_to_update">If you are change internal parameters can affects performance.</string>
+
+    <string name="poweron">Power On</string>
+    <string name="poweroff">POwer Off</string>
+
+    <string name="connect_com">COM Interface</string>
+    <string name="connect_tcp">TCP Interface</string>
+    <string name="connect_spp">SPP Interface</string>
+    <string name="connect_ble">BLE Interface</string>
+    <string name="connect_hid">HID Interface</string>
+    <string name="connect_cdc">CDC Interface</string>
+    <string name="connect_wifi">WIFI Interface</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="search">Search</string>
+
+    <string name="connect_tcp_ipaddress">IP Address:</string>
+    <string name="connect_tcp_ipport">IP Port:</string>
+    <string name="connect_tcp_address_def">192.168.2.116</string>
+    <string name="connect_tcp_port_def">49152</string>
+
+    <string name="com_port">Portname:</string>
+    <string name="baud_rate">Baudrate:</string>
+
+    <string name="rs232_error">rs232 error</string>
+    <string name="usb_error">usb error</string>
+    <string name="tcp_error">tcpip error</string>
+
+    <string name="rs232_noport">have not port</string>
+
+    <string name="ip_error">ip error(192.168.2.116)</string>
+    <string name="ip_null">ip null</string>
+    <string name="port_null">port null</string>
+    <string name="ip_connecting">TCP connecting</string>
+    <string name="ip_connect_timeout">TCP connect timeout</string>
+    <string name="ip_connect_fail">TCP connect fail</string>
+    <string name="ip_connect_success">TCP connect succeed</string>
+
+    <string name="ad_comm_spp_no_bluetooth">This device do not support bluetooth</string>
+    <string name="ad_comm_spp_scanning">Scanning</string>
+    <string name="ad_comm_spp_select_device">Select Device</string>
+    <string name="ad_comm_spp_none_paired">None Paired</string>
+    <string name="ad_comm_spp_none_found">None Found</string>
+    <string name="ad_comm_spp_title_paired_devices">Paired Devices</string>
+    <string name="ad_comm_spp_title_other_devices">Other Devices</string>
+    <string name="ad_comm_spp_scan">Scan Device</string>
+    <string name="ad_comm_spp_stop">Stop</string>
+    <string name="ad_comm_spp_connect">Connect</string>
+    <string name="ad_comm_spp_cancel">Cancel</string>
+    <string name="ad_comm_spp_connecting">Bluetooth connecting</string>
+    <string name="ad_comm_spp_connect_timeout">Bluetooth connect timeout</string>
+    <string name="ad_comm_spp_connect_fail">Bluetooth connect fail</string>
+    <string name="ad_comm_spp_connect_success">Bluetooth connect succeed</string>
+
+    <string name="ad_comm_ble_title_devices_list">Other Devices</string>
+    <string name="ad_comm_ble_scan">Scan</string>
+    <string name="ad_comm_ble_stop">Stop</string>
+    <string name="ad_comm_ble_connect">Connect</string>
+    <string name="ad_comm_ble_cancel">Cancel</string>
+    <string name="ad_comm_ble_select_device">Select Device</string>
+    <string name="ad_comm_ble_not_supported">BLE is not supported</string>
+    <string name="ad_comm_ble_error_supported">Bluetooth not supported.</string>
+    <string name="ad_comm_ble_unknown_device">Unknown device</string>
+    <string name="ad_comm_ble_unknown_characteristic">Unknown characteristic</string>
+    <string name="ad_comm_ble_unknown_service">Unknown service</string>
+
+    <string name="param_unknown_error">Parameter unknown error </string>
+    <string name="param_start_addr_error">Start address error</string>
+    <string name="param_lockpassword_error">Password error</string>
+    <string name="param_killpassword_error">Password error</string>
+    <string name="param_password_error">Password error</string>
+    <string name="param_data_len_error">data length error</string>
+    <string name="param_data_error">data error</string>
+    <string name="param_epc_error">not select target tag</string>
+
+    <string name="title_version">Reader Version Choose</string>
+    <string name="choose_version">Choose Version</string>
+    <string name="choose_comm">Choose Communition</string>
+
+    <string name="page_test_name">Communication Test</string>
+
+    <string name="title_test">Protocol Test</string>
+    <string name="title_demo">Read Demo</string>
+    <string name="title_base">Base Parameters</string>
+    <string name="title_senior">Senior Parameters</string>
+    <string name="title_6c">EPC(GEN 2) Atcion</string>
+    <string name="title_6b">ISO18000-6B Atcion</string>
+
+    <string name="title_shortepc">Short Tag Parameters</string>
+
+    <string name="test_send">Send</string>
+    <string name="test_send_hex">Send Data(Hex):</string>
+    <string name="test_recv_hex">Recv Data(Hex):</string>
+    <string name="test_send_msg">Send Message</string>
+    <string name="test_recv_msg">Recv Message</string>
+    <string name="test_res_msg">Run Log</string>
+
+    <string name="btn_information">Connect Reader</string>
+    <string name="btn_enter">Enter</string>
+
+    <string name="btn_stop">Stop</string>
+    <string name="btn_read">Read</string>
+    <string name="btn_write">Write</string>
+    <string name="btn_identify">Identify</string>
+    <string name="btn_identify6C">Identify 6C</string>
+    <string name="btn_identify6B">Identify 6B</string>
+
+    <string name="btn_get">Get</string>
+    <string name="btn_set">Set</string>
+    <string name="btn_para">Settings</string>
+    <string name="btn_select">Select</string>
+    <string name="btn_def">Default</string>
+    <string name="btn_clr">Clear</string>
+
+    <string name="btn_lock">Lock</string>
+    <string name="btn_kill">Kill</string>
+
+    <string name="btn_reset">Reset</string>
+    <string name="btn_erase">Erase</string>
+    <string name="btn_update">Update</string>
+
+    <string name="tv_outused">Is Used</string>
+    <string name="tv_outtype">Out Type:</string>
+    <string name="tv_outstart">Out Start:</string>
+    <string name="tv_outbyte">Out Byte:</string>
+
+    <string name="tv_tag">ID:</string>
+    <string name="tv_epc">EPC:</string>
+    <string name="tv_tid">TID:</string>
+    <string name="tv_read">Read Data(HEX)</string>
+    <string name="tv_write">Write Data(HEX)</string>
+
+    <string name="btn_identify_auto">Auto Identify</string>
+    <string name="btn_identify_stop">Stop</string>
+    <string name="btn_command">Cmd Identify</string>
+
+    <string name="stop_for_tags">Stop for tags:</string>
+    <string name="max_tag">Identify Tags:</string>
+
+</resources>

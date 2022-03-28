@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listitem_card_item_id"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:id="@+id/listitem_card_item_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:gravity="center"
+        android:minWidth="32dp"
+        android:text="NO."
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_12"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/listitem_card_item_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/listitem_card_item_count"
+        android:layout_toRightOf="@+id/listitem_card_item_no"
+        android:gravity="center"
+        android:minWidth="32dp"
+        android:text="TAG ID"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_12"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/listitem_card_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:gravity="center"
+        android:minWidth="42dp"
+        android:text="Count"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_12"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>

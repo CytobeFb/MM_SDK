@@ -1,0 +1,127 @@
+<resources>
+    <string name="page_mm">MM版</string>
+
+    <string name="tv_mm_commtype">通讯模式:</string>
+    <string name="tv_mm_workmode">工作模式:</string>
+    <string name="tv_mm_readtype">读卡类别:</string>
+    <string name="tv_mm_interval">读卡间隔(ms):</string>
+    <string name="tv_mm_delay">读卡延时(s):</string>
+
+    <string name="tv_mm_sameid">相同ID输出间隔:(s)</string>
+    <string name="tv_mm_beep">嗡鸣器:</string>
+    <string name="tv_mm_feedback">输入反馈:</string>
+    <string name="tv_mm_trigger">外部触发方式:</string>
+    <string name="tv_mm_keyword">配对码:</string>
+    <string name="tv_mm_otherdata">使用附加数据:</string>
+    <string name="tv_mm_block">分块地址:</string>
+    <string name="tv_mm_start">数据地址:</string>
+    <string name="tv_mm_length">数据长度:</string>
+
+    <string name="tv_mm_access">访问密码:</string>
+    <string name="tv_mm_lockmem">锁定块:</string>
+    <string name="tv_mm_locktype">锁定方式:</string>
+    <string name="tv_mm_kill">销毁密码:</string>
+
+    <string name="tv_mm_address">协议地址:</string>
+    <string name="tv_mm_baudrate232">RS232波特率:</string>
+    <string name="tv_mm_baudrate485">RS485波特率:</string>
+    <string name="tv_mm_iotype">IO输出方式:</string>
+    <string name="tv_mm_iodelay">IO输出延时(s):</string>
+    <string name="tv_mm_iooff">关</string>
+    <string name="tv_mm_ioon">开</string>
+    <string name="tv_mm_beepoff">关</string>
+    <string name="tv_mm_beepon">开</string>
+    <string name="tv_mm_customdata">限制卡号列表:</string>
+
+    <string name="tv_mm_outcard_enabled">卡号输出使能:</string>
+
+    <string name="tv_mm_freqhopping">跳频使能</string>
+
+    <string name="tv_mm_region">射频规范:</string>
+    <string name="tv_mm_channel">跳频通道(MHz):</string>
+    <string name="tv_mm_power">发送功率大小(dBm):</string>
+    <string name="tv_mm_modulation">读卡制式:</string>
+    <string name="tv_mm_temperature">内部温度(℃):</string>
+
+    <string name="tv_mm_outused">是否启用输出:</string>
+    <string name="tv_mm_outtype">输出类型:</string>
+    <string name="tv_mm_outlen">输出显示长度:</string>
+    <string name="tv_mm_outenter">是否带回车符</string>
+    <string name="tv_mm_outstart">输出起始位置:</string>
+    <string name="tv_mm_outbyte">输出字节(byte):</string>
+    <string name="tv_mm_outenddata">尾缀附加数据:</string>
+    <string name="tv_mm_outendlen">尾缀附加长度:</string>
+    <string name="tv_mm_outheaddata">前缀附加数据:</string>
+    <string name="tv_mm_outheadlen">前缀附加长度:</string>
+
+
+    <string-array name="array_mm_workmodes">
+        <item>应答模式</item>
+        <item>主动模式</item>
+        <item>被动模式</item>
+    </string-array>
+    <string-array name="array_mm_readtypes">
+        <item>Non Use</item>
+        <item>Non Use</item>
+        <item>6C</item>
+        <item>6C+TID</item>
+    </string-array>
+    <string-array name="array_mm_commmodes">
+        <item>TTL/BLE/SPP</item>
+        <item>485/232/USB/HID/WIFI/TCPIP</item>
+        <item>WG26</item>
+        <item>WG34</item>
+        <item>WG66</item>
+    </string-array>
+    <string-array name="array_mm_baudrate">
+        <item>"115200"</item>
+        <item>"57600"</item>
+        <item>"38400"</item>
+        <item>"9600"</item>
+        <item>"1200"</item>
+    </string-array>
+    <string-array name="array_mm_epcblocks">
+        <item>Rev</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </string-array>
+    <string-array name="array_mm_lockmem">
+        <item>KILL</item>
+        <item>ACCESS</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </string-array>
+    <string-array name="array_mm_lockType">
+        <item>Open</item>
+        <item>Open forever</item>
+        <item>Lock</item>
+        <item>Lock forever</item>
+    </string-array>
+    <string-array name="array_mm_iotype">
+        <item>"无动作"</item>
+        <item>"默认常开状态"</item>
+        <item>"默认常闭状态"</item>
+        <item>"默认常开,读卡闭合"</item>
+        <item>"默认常闭,读卡断开"</item>
+    </string-array>
+    <string-array name="array_mm_region">
+        <item>"中国900"</item>
+        <item>"中国800"</item>
+        <item>"美国"</item>
+        <item>"欧洲"</item>
+        <item>"韩国"</item>
+    </string-array>
+    <string-array name="array_mm_outtype">
+        <item>"10进制"</item>
+        <item>"16进制"</item>
+        <item>"标准韦根"</item>
+        <item>"ASCII码"</item>
+        <item>"百灵码"</item>
+    </string-array>
+    <string-array name="array_mm_modulation">
+        <item>"高灵敏度"</item>
+        <item>"高效率"</item>
+    </string-array>
+</resources>

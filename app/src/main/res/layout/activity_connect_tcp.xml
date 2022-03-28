@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_gradient_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--按键-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/base_resid"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_05"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal"
+            tools:ignore="RtlHardcoded">
+
+            <TextView
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_40"
+                android:layout_marginTop="@dimen/margin_05"
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_05"
+                android:paddingLeft="@dimen/padding_10"
+                android:text="@string/connect_tcp_ipaddress"
+                android:textSize="@dimen/textsize_16"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/connect_tcp_ip_address_text"
+                android:layout_width="200sp"
+                android:layout_height="fill_parent"
+                android:autofillHints=""
+                android:digits="0123456789."
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/padding_05"
+                android:textSize="@dimen/textsize_16"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_05"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal"
+            tools:ignore="RtlHardcoded">
+
+            <TextView
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_40"
+                android:layout_marginTop="@dimen/margin_05"
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_05"
+                android:paddingLeft="@dimen/padding_10"
+                android:text="@string/connect_tcp_ipport"
+                android:textSize="@dimen/textsize_16"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/connect_tcp_ip_port_text"
+                android:layout_width="100sp"
+                android:layout_height="fill_parent"
+                android:autofillHints=""
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/padding_05"
+                android:textSize="@dimen/textsize_16"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_connect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_05"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/margin_05"
+            android:background="@drawable/base_button_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/padding_10"
+            android:paddingBottom="@dimen/padding_10"
+            android:text="@string/connect"
+            android:textSize="@dimen/textsize_20"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!--通讯信息显示-->
+    <LinearLayout
+        android:id="@+id/base_resid"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_05">
+
+        <TextView
+            android:id="@+id/base_res_value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="@dimen/padding_05"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+    </LinearLayout>
+
+</RelativeLayout>

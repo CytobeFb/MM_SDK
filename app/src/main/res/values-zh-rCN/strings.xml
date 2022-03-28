@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RFIDDemo(MM)</string>
+
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="goon">继续</string>
+    <string name="switchwifi">切换</string>
+    <string name="alert_diag_title">提示</string>
+    <string name="are_you_sure_to_exit">确认要退出吗？</string>
+    <string name="are_you_sure_to_erase">是否恢复出厂设置?</string>
+    <string name="are_you_sure_to_update">当你修改参数后,将改变读卡效果,是否更改?</string>
+
+    <string name="poweron">打开电源</string>
+    <string name="poweroff">关闭电源</string>
+
+    <string name="connect_com">串口COM连接</string>
+    <string name="connect_tcp">网络TCP连接</string>
+    <string name="connect_spp">蓝牙SPP连接</string>
+    <string name="connect_ble">蓝牙BLE连接</string>
+    <string name="connect_hid">USB HID连接</string>
+    <string name="connect_cdc">USB CDC连接</string>
+    <string name="connect_wifi">网络WIFI连接</string>
+    <string name="connect">立即连接</string>
+    <string name="disconnect">断开</string>
+    <string name="search">搜索</string>
+
+    <string name="connect_tcp_ipaddress">IP地址:</string>
+    <string name="connect_tcp_ipport">IP端口:</string>
+    <string name="connect_tcp_address_def">192.168.2.116</string>
+    <string name="connect_tcp_port_def">49152</string>
+
+    <string name="com_port">串口号:</string>
+    <string name="baud_rate">波特率:</string>
+
+    <string name="rs232_error">串口参数设置错误</string>
+    <string name="usb_error">USB错误</string>
+    <string name="tcp_error">TCPIP错误</string>
+
+    <string name="rs232_noport">设备无串口</string>
+
+    <string name="ip_error">IP格式错误(192.168.2.116)</string>
+    <string name="ip_null">IP不能为空</string>
+    <string name="port_null">端口号不能为空</string>
+    <string name="ip_connecting">TCP正在连接</string>
+    <string name="ip_connect_timeout">TCP连接超时</string>
+    <string name="ip_connect_fail">TCP连接错误</string>
+    <string name="ip_connect_success">TCP连接成功</string>
+
+    <string name="ad_comm_spp_no_bluetooth">此机型不支持蓝牙。</string>
+    <string name="ad_comm_spp_scanning">正在搜索设备</string>
+    <string name="ad_comm_spp_select_device">选择要连接的设备</string>
+    <string name="ad_comm_spp_none_paired">尚无配对设备</string>
+    <string name="ad_comm_spp_none_found">未发现设备</string>
+    <string name="ad_comm_spp_title_paired_devices">已配对的设备</string>
+    <string name="ad_comm_spp_title_other_devices">其他可用设备</string>
+    <string name="ad_comm_spp_scan">搜索设备</string>
+    <string name="ad_comm_spp_connect">连接</string>
+    <string name="ad_comm_spp_cancel">取消</string>
+    <string name="ad_comm_spp_stop">停止</string>
+    <string name="ad_comm_spp_connecting">蓝牙正在连接</string>
+    <string name="ad_comm_spp_connect_timeout">蓝牙连接超时</string>
+    <string name="ad_comm_spp_connect_fail">蓝牙连接错误</string>
+    <string name="ad_comm_spp_connect_success">蓝牙连接成功</string>
+
+    <string name="ad_comm_ble_title_devices_list">设备列表</string>
+    <string name="ad_comm_ble_scan">搜索设备</string>
+    <string name="ad_comm_ble_stop">停止</string>
+    <string name="ad_comm_ble_connect">连接</string>
+    <string name="ad_comm_ble_cancel">取消</string>
+    <string name="ad_comm_ble_select_device">选择要连接的设备</string>
+    <string name="ad_comm_ble_error_supported">不支持蓝牙2.0</string>
+    <string name="ad_comm_ble_not_supported">不支持蓝牙4.0</string>
+    <string name="ad_comm_ble_unknown_characteristic">不识别字符</string>
+    <string name="ad_comm_ble_unknown_device">不识别设备</string>
+    <string name="ad_comm_ble_unknown_service">不识别服务</string>
+
+    <string name="param_unknown_error">参数未知错误</string>
+    <string name="param_start_addr_error">起始地址格式错误</string>
+    <string name="param_lockpassword_error">密码格式错误</string>
+    <string name="param_killpassword_error">密码格式错误</string>
+    <string name="param_password_error">密码格式错误</string>
+    <string name="param_data_len_error">数据长度格式错误</string>
+    <string name="param_data_error">写入数据格式错误</string>
+    <string name="param_epc_error">未选择目标标签</string>
+
+    <string name="title_version">读卡器版本选择</string>
+    <string name="choose_version">选择读卡器版本</string>
+    <string name="choose_comm">选择通讯方式</string>
+
+
+    <string name="page_test_name">通讯测试</string>
+
+    <string name="title_test">协议测试</string>
+    <string name="title_demo">读卡演示</string>
+    <string name="title_base">基本参数</string>
+    <string name="title_senior">高级参数</string>
+    <string name="title_6c">EPC(GEN 2)操作</string>
+    <string name="title_6b">ISO18000-6B操作</string>
+
+    <string name="title_shortepc">短卡号显示设置</string>
+
+    <string name="btn_information">连接读卡器</string>
+    <string name="btn_enter">进入</string>
+
+    <string name="test_send">发送</string>
+    <string name="test_send_hex">发送数据(Hex):</string>
+    <string name="test_recv_hex">接收数据(Hex):</string>
+    <string name="test_send_msg">发送信息</string>
+    <string name="test_recv_msg">接收信息</string>
+    <string name="test_res_msg">运行信息</string>
+
+    <string name="btn_stop">停止</string>
+    <string name="btn_read">读卡</string>
+    <string name="btn_write">写卡</string>
+    <string name="btn_identify">识别</string>
+    <string name="btn_identify6C">识别6C</string>
+    <string name="btn_identify6B">识别6B</string>
+
+    <string name="btn_get">获取</string>
+    <string name="btn_set">设置</string>
+    <string name="btn_para">参数</string>
+    <string name="btn_select">选中</string>
+    <string name="btn_def">默认值</string>
+    <string name="btn_clr">清除</string>
+
+    <string name="btn_lock">锁定</string>
+    <string name="btn_kill">销毁</string>
+
+    <string name="btn_reset">重启</string>
+    <string name="btn_erase">恢复出厂</string>
+    <string name="btn_update">更新</string>
+
+    <string name="tv_tag">ID:</string>
+    <string name="tv_epc">EPC:</string>
+    <string name="tv_tid">TID:</string>
+    <string name="tv_read">读数据(HEX)</string>
+    <string name="tv_write">写数据(HEX)</string>
+
+    <string name="tv_outused">是否启用输出:</string>
+    <string name="tv_outtype">输出类型:</string>
+    <string name="tv_outstart">输出起始位置:</string>
+    <string name="tv_outbyte">输出字节(byte):</string>
+
+    <string name="btn_identify_auto">自动识别</string>
+    <string name="btn_identify_stop">停止</string>
+    <string name="btn_command">命令识别</string>
+
+    <string name="stop_for_tags">停止数量:</string>
+    <string name="max_tag">盘存数量:</string>
+
+</resources>

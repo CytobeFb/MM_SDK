@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_gradient_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <!--参数-->
+    <LinearLayout
+        android:id="@+id/demo_para_para_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/demo_para_button_id"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin_05"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <!--是否启用-->
+        <LinearLayout
+            android:id="@+id/demo_para_outused_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/demo_para_outused_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="140dp"
+                android:text="@string/tv_outused"
+                android:textSize="@dimen/textsize_16" />
+
+            <Spinner
+                android:id="@+id/demo_para_outused_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/base_enableds"
+                android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+        </LinearLayout>
+
+        <!--输出类型-->
+        <LinearLayout
+            android:id="@+id/demo_para_outtype_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_05"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/demo_para_outtype_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="140dp"
+                android:text="@string/tv_outtype"
+                android:textSize="@dimen/textsize_16" />
+
+            <Spinner
+                android:id="@+id/demo_para_outtype_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/base_outtype"
+                android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+        </LinearLayout>
+
+        <!--输出起始-->
+        <LinearLayout
+            android:id="@+id/demo_para_outstart_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/demo_para_outstart_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="140dp"
+                android:text="@string/tv_outstart"
+                android:textSize="@dimen/textsize_16" />
+
+            <EditText
+                android:id="@+id/demo_para_outstart_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:inputType="number"
+                android:maxLength="2"
+                android:text="2"
+                tools:ignore="HardcodedText,LabelFor" />
+        </LinearLayout>
+
+        <!--输出字节-->
+        <LinearLayout
+            android:id="@+id/demo_para_outbyte_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/demo_para_outbyte_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="140dp"
+                android:text="@string/tv_outbyte"
+                android:textSize="@dimen/textsize_16" />
+
+            <EditText
+                android:id="@+id/demo_para_outbyte_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:inputType="number"
+                android:maxLength="2"
+                android:text="3"
+                tools:ignore="HardcodedText,LabelFor" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--按键-->
+    <LinearLayout
+        android:id="@+id/demo_para_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_05"
+        android:paddingRight="@dimen/padding_05">
+
+        <TextView
+            android:id="@+id/demo_para_button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/padding_02"
+            android:layout_weight="3"
+            android:background="@drawable/base_button_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/btn_update"
+            android:textSize="@dimen/textsize_16"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/demo_para_button_def"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/base_button_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/btn_def"
+            android:textSize="@dimen/textsize_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

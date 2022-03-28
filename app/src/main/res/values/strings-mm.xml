@@ -1,0 +1,126 @@
+<resources>
+    <string name="page_mm">MM Version</string>
+
+    <string name="tv_mm_commtype">CommMode:</string>
+    <string name="tv_mm_workmode">WorkMode:</string>
+    <string name="tv_mm_readtype">ReadType:</string>
+    <string name="tv_mm_interval">Read Interval(ms):</string>
+    <string name="tv_mm_delay">Read delay(s):</string>
+    <string name="tv_mm_sameid">Out Invt:(s)</string>
+    <string name="tv_mm_beep">Beep:</string>
+    <string name="tv_mm_feedback">Feedback:</string>
+    <string name="tv_mm_trigger">Trigger:</string>
+    <string name="tv_mm_keyword">keyword:</string>
+    <string name="tv_mm_otherdata">Use Other Data:</string>
+    <string name="tv_mm_block">Block:</string>
+    <string name="tv_mm_start">Start Addr:</string>
+    <string name="tv_mm_length">Length:</string>
+
+    <string name="tv_mm_access">Access pwd:</string>
+    <string name="tv_mm_lockmem">Lock mem:</string>
+    <string name="tv_mm_locktype">Lock type:</string>
+    <string name="tv_mm_kill">Kill pwd:</string>
+
+    <string name="tv_mm_address">Protocol address:</string>
+    <string name="tv_mm_baudrate232">RS232 BaudRate:</string>
+    <string name="tv_mm_baudrate485">RS485 BaudRate:</string>
+    <string name="tv_mm_iotype">IO Out Type:</string>
+    <string name="tv_mm_iodelay">IO Out Delay(s):</string>
+    <string name="tv_mm_ioon">IO On</string>
+    <string name="tv_mm_iooff">IO Off</string>
+    <string name="tv_mm_beepon">Beep On</string>
+    <string name="tv_mm_beepoff">Beep Off</string>
+    <string name="tv_mm_customdata">Limit ID Array:</string>
+
+    <string name="tv_mm_outcard_enabled">OutCard Enabled:</string>
+
+    <string name="tv_mm_freqhopping">Frequency Hopping</string>
+
+    <string name="tv_mm_region">Freq Region:</string>
+    <string name="tv_mm_channel">Freq Channel(MHz):</string>
+    <string name="tv_mm_power">Out Power(dBm):</string>
+    <string name="tv_mm_modulation">Mode:</string>
+    <string name="tv_mm_temperature">Temperature(℃):</string>
+
+    <string name="tv_mm_outused">Is Used</string>
+    <string name="tv_mm_outtype">Out Type:</string>
+    <string name="tv_mm_outlen">Out Len:</string>
+    <string name="tv_mm_outenter">Is Key Enter</string>
+    <string name="tv_mm_outstart">Out Start:</string>
+    <string name="tv_mm_outbyte">Out Byte:</string>
+    <string name="tv_mm_outheadlen">Head Length:</string>
+    <string name="tv_mm_outheaddata">Head Data:</string>
+    <string name="tv_mm_outendlen">End Length:</string>
+    <string name="tv_mm_outenddata">End Data:</string>
+
+
+    <string-array name="array_mm_workmodes">
+        <item>Command</item>
+        <item>Active</item>
+        <item>Passive</item>
+    </string-array>
+    <string-array name="array_mm_readtypes">
+        <item>Non Use</item>
+        <item>Non Use</item>
+        <item>6C</item>
+        <item>6C+TID</item>
+    </string-array>
+    <string-array name="array_mm_commmodes">
+        <item>TTL/BLE/SPP</item>
+        <item>485/232/USB/HID/WIFI/TCPIP</item>
+        <item>WG26</item>
+        <item>WG34</item>
+        <item>WG66</item>
+    </string-array>
+    <string-array name="array_mm_baudrate">
+        <item>"115200"</item>
+        <item>"57600"</item>
+        <item>"38400"</item>
+        <item>"9600"</item>
+        <item>"1200"</item>
+    </string-array>
+    <string-array name="array_mm_epcblocks">
+        <item>Rev</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </string-array>
+    <string-array name="array_mm_lockmem">
+        <item>KILL</item>
+        <item>ACCESS</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </string-array>
+    <string-array name="array_mm_lockType">
+        <item>Open</item>
+        <item>Open forever</item>
+        <item>Lock</item>
+        <item>Lock forever</item>
+    </string-array>
+    <string-array name="array_mm_iotype">
+        <item>"NON"</item>
+        <item>"NO"</item>
+        <item>"NC"</item>
+        <item>"NO_R"</item>
+        <item>"NC_R"</item>
+    </string-array>
+    <string-array name="array_mm_region">
+        <item>"CHN900"</item>
+        <item>"CHN800"</item>
+        <item>"USA"</item>
+        <item>"Europe"</item>
+        <item>"Korea"</item>
+    </string-array>
+    <string-array name="array_mm_outtype">
+        <item>"Decimal"</item>
+        <item>"Hex"</item>
+        <item>"Wiegand"</item>
+        <item>"ASCII"</item>
+        <item>"BAILING"</item>
+    </string-array>
+    <string-array name="array_mm_modulation">
+        <item>"High Sensitivity"</item>
+        <item>"Dense Reader"</item>
+    </string-array>
+</resources>

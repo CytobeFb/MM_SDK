@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_gradient_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_connect_tcp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_05"
+        android:background="@drawable/base_button_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/connect_tcp"
+        android:textSize="@dimen/textsize_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textview_connect_spp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_05"
+        android:background="@drawable/base_button_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/connect_spp"
+        android:textSize="@dimen/textsize_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textview_connect_ble"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_05"
+        android:background="@drawable/base_button_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/connect_ble"
+        android:textSize="@dimen/textsize_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textview_connect_rs232"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_05"
+        android:background="@drawable/base_button_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/connect_com"
+        android:textSize="@dimen/textsize_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textview_connect_hid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_05"
+        android:background="@drawable/base_button_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/connect_hid"
+        android:textSize="@dimen/textsize_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textview_connect_cdc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_05"
+        android:background="@drawable/base_button_selector"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:text="@string/connect_cdc"
+        android:textSize="@dimen/textsize_20"
+        android:textStyle="bold" />
+
+</LinearLayout>

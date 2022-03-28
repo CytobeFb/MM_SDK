@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_gradient_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/iso6c_id"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_05"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <!--EPC id-->
+        <LinearLayout
+            android:id="@+id/iso6c_epc_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_epc_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:layout_marginRight="@dimen/margin_05"
+                android:gravity="center"
+                android:text="@string/tv_epc"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/iso6c_epc_value"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                android:layout_margin="@dimen/margin_02"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:layout_weight="1"
+                android:background="@drawable/base_editbox_background"
+                android:digits="0123456789abcdefABCDEF"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="text"
+                android:textSize="@dimen/textsize_16" />
+
+            <TextView
+                android:id="@+id/iso6c_epc_identify"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/padding_02"
+                android:background="@drawable/base_button_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:text="@string/btn_identify"
+                android:textSize="@dimen/textsize_16"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/iso6c_epc_select"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_epc_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/padding_02"
+                android:layout_weight="1"
+                android:background="@drawable/base_button_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/btn_select"
+                android:textSize="@dimen/textsize_12"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/iso6c_epc_unselected"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/base_button_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/btn_clr"
+                android:textSize="@dimen/textsize_12"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <!--ACCESS PASSWORD-->
+        <LinearLayout
+            android:id="@+id/iso6c_access_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_02"
+            android:layout_marginTop="@dimen/margin_05"
+            android:layout_marginRight="@dimen/margin_02"
+            android:layout_marginBottom="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_access_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:minWidth="120dp"
+                android:text="@string/tv_mm_access"
+                android:textSize="@dimen/textsize_16" />
+
+            <EditText
+                android:id="@+id/iso6c_access_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789abcdefABCDEF"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="text"
+                android:maxLength="8"
+                android:text="00000000"
+                android:textSize="@dimen/textsize_16" />
+        </LinearLayout>
+
+        <!--多区域块选择-->
+        <LinearLayout
+            android:id="@+id/iso6c_block_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_block_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:minWidth="120dp"
+                android:text="@string/tv_mm_block"
+                android:textSize="@dimen/textsize_16" />
+
+            <Spinner
+                android:id="@+id/iso6c_block_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/array_mm_epcblocks"
+                android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+        </LinearLayout>
+
+        <!--起始地址和数据长度-->
+        <LinearLayout
+            android:id="@+id/custom_readtime_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!--多区域起始地址-->
+            <LinearLayout
+                android:id="@+id/iso6c_addr_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_02"
+                android:layout_weight="1"
+                android:background="@drawable/base_boder"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_02">
+
+                <TextView
+                    android:id="@+id/iso6b_addr_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_05"
+                    android:minWidth="120dp"
+                    android:text="@string/tv_mm_start"
+                    android:textSize="@dimen/textsize_16" />
+
+                <EditText
+                    android:id="@+id/iso6c_addr_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:text="0"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </LinearLayout>
+
+            <!--多区域长度-->
+            <LinearLayout
+                android:id="@+id/iso6c_len_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_02"
+                android:layout_weight="1"
+                android:background="@drawable/base_boder"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_02">
+
+                <TextView
+                    android:id="@+id/iso6c_len_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_05"
+                    android:minWidth="120dp"
+                    android:text="@string/tv_mm_length"
+                    android:textSize="@dimen/textsize_16" />
+
+                <EditText
+                    android:id="@+id/iso6c_len_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:text="4"
+                    tools:ignore="HardcodedText,LabelFor" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--读卡-->
+        <LinearLayout
+            android:id="@+id/iso6c_read_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_read_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:text="@string/tv_read"
+                android:textSize="@dimen/textsize_16" />
+
+            <LinearLayout
+                android:id="@+id/iso6c_read_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/iso6c_read_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="64sp"
+                    android:layout_margin="@dimen/margin_02"
+                    android:layout_weight="1"
+                    android:background="@drawable/base_editbox_background"
+                    android:digits="0123456789abcdefABCDEF"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text"
+                    android:textSize="@dimen/textsize_16" />
+
+                <TextView
+                    android:id="@+id/iso6c_epc_read"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/base_button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:minWidth="80dp"
+                    android:text="@string/btn_read"
+                    android:textSize="@dimen/textsize_16"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--写卡-->
+        <LinearLayout
+            android:id="@+id/iso6c_write_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_write_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:text="@string/tv_write"
+                android:textSize="@dimen/textsize_16" />
+
+            <LinearLayout
+                android:id="@+id/iso6c_write_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/iso6c_write_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="@dimen/margin_02"
+                    android:layout_weight="1"
+                    android:background="@drawable/base_editbox_background"
+                    android:digits="0123456789abcdefABCDEF"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:inputType="text"
+                    android:textSize="@dimen/textsize_16" />
+
+                <TextView
+                    android:id="@+id/iso6c_epc_write"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/base_button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:minWidth="80dp"
+                    android:text="@string/btn_write"
+                    android:textSize="@dimen/textsize_16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--EPC Lock-->
+        <LinearLayout
+            android:id="@+id/iso6c_lock_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_02"
+            android:layout_marginTop="@dimen/margin_05"
+            android:layout_marginRight="@dimen/margin_02"
+            android:layout_marginBottom="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <LinearLayout
+                android:id="@+id/iso6c_lock_value_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/iso6c_lockmem_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/iso6c_lockmem_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_05"
+                        android:minWidth="120dp"
+                        android:text="@string/tv_mm_lockmem"
+                        android:textSize="@dimen/textsize_16"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+                        android:id="@+id/iso6c_lockmem_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_lockmem"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/iso6c_locktype_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/iso6c_locktype_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_05"
+                        android:minWidth="120dp"
+                        android:text="@string/tv_mm_locktype"
+                        android:textSize="@dimen/textsize_16"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+                        android:id="@+id/iso6c_locktype_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_lockType"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/iso6c_lock_button_id"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/base_boder"
+                android:minWidth="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/iso6c_lock_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/base_button_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@string/btn_lock"
+                    android:textSize="@dimen/textsize_16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--EPC Kill-->
+        <LinearLayout
+            android:id="@+id/iso6c_kill_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_02"
+            android:layout_marginTop="@dimen/margin_05"
+            android:layout_marginRight="@dimen/margin_02"
+            android:layout_marginBottom="@dimen/margin_02"
+            android:background="@drawable/base_boder"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_02">
+
+            <TextView
+                android:id="@+id/iso6c_kill_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_05"
+                android:minWidth="120dp"
+                android:text="@string/tv_mm_kill"
+                android:textSize="@dimen/textsize_16"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/iso6c_kill_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789abcdefABCDEF"
+                android:gravity="center_vertical|center_horizontal"
+                android:inputType="text"
+                android:maxLength="8"
+                android:text="00000000"
+                android:textSize="@dimen/textsize_16" />
+
+            <TextView
+                android:id="@+id/iso6c_kill_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/base_button_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:text="@string/btn_kill"
+                android:textSize="@dimen/textsize_16"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--通讯信息显示-->
+    <LinearLayout
+        android:id="@+id/base_resid"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_05"
+        android:paddingTop="@dimen/padding_02"
+        android:paddingRight="@dimen/padding_05"
+        android:paddingBottom="@dimen/padding_05">
+
+        <TextView
+            android:id="@+id/base_res_value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/base_editbox_background"
+            android:clickable="true"
+            android:gravity="left|center"
+            android:paddingLeft="@dimen/padding_05"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+    </LinearLayout>
+
+</RelativeLayout>

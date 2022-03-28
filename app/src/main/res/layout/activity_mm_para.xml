@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_gradient_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--参数-->
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/base_resid"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/margin_05"
+        android:layout_marginRight="@dimen/margin_05"
+        android:fadingEdge="horizontal"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:id="@+id/para_para_id"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <!--base-->
+            <LinearLayout
+                android:id="@+id/para_base_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+
+                <!--commtype-->
+                <LinearLayout
+                    android:id="@+id/para_commtype_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_commtype_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_commtype"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/para_commtype_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_commmodes"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <!--workmode-->
+                <LinearLayout
+                    android:id="@+id/para_workmode_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_workmode_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_workmode"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/para_workmode_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_workmodes"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+                <!--readtype-->
+                <LinearLayout
+                    android:id="@+id/para_readtype_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_readtype_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_readtype"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/para_readtype_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/array_mm_readtypes"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+                <!--interval-->
+                <LinearLayout
+                    android:id="@+id/para_interval_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_interval_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_interval"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <EditText
+                        android:id="@+id/para_interval_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="0~254"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:text="20"
+                        tools:ignore="HardcodedText,LabelFor" />
+                </LinearLayout>
+                <!--delay-->
+                <LinearLayout
+                    android:id="@+id/para_delay_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_delay_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_delay"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <EditText
+                        android:id="@+id/para_delay_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="0~254"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:text="1"
+                        tools:ignore="HardcodedText,LabelFor" />
+                </LinearLayout>
+                <!--sameid-->
+                <LinearLayout
+                    android:id="@+id/para_sameid_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_sameid_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_sameid"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <EditText
+                        android:id="@+id/para_sameid_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="0~50000"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:text="1"
+                        tools:ignore="HardcodedText,LabelFor" />
+                </LinearLayout>
+
+                <!--beep-->
+                <LinearLayout
+                    android:id="@+id/para_beep_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_beep_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_beep"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/para_beep_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/base_beeps"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/para_base_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/para_base_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/para_base_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--outcard-->
+            <LinearLayout
+                android:id="@+id/para_outcard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/base_boder"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_02">
+
+                <LinearLayout
+                    android:id="@+id/para_outcard_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/para_outcard_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="140dp"
+                        android:text="@string/tv_mm_outcard_enabled"
+                        android:textSize="@dimen/textsize_12" />
+
+                    <Spinner
+                        android:id="@+id/para_outcard_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/base_enableds"
+                        android:spinnerStyle="@android:style/Widget.Spinner.DropDown" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/para_outcard_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_02">
+
+                    <TextView
+                        android:id="@+id/para_outcard_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/padding_02"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_get"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/para_outcard_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/base_button_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/btn_set"
+                        android:textSize="@dimen/textsize_12"
+                        android:textStyle="bold"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--通讯信息显示-->
+    <LinearLayout
+        android:id="@+id/base_resid"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_05"
+        android:paddingTop="@dimen/padding_02"
+        android:paddingRight="@dimen/padding_05"
+        android:paddingBottom="@dimen/padding_05">
+
+        <TextView
+            android:id="@+id/base_res_value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/base_editbox_background"
+            android:clickable="true"
+            android:gravity="left|center"
+            android:paddingLeft="@dimen/padding_05"
+            android:textSize="@dimen/textsize_12"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+    </LinearLayout>
+
+</RelativeLayout>
