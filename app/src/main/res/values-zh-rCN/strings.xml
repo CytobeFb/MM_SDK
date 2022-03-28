@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RFIDDemo(MM)</string>
+    <string name="app_name">车间电子标签识别系统</string>
 
     <string name="yes">是</string>
     <string name="no">否</string>

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        package="com.ad.demo">
+        package="com.ad.yeyoo">
 
     <!-- 蓝牙权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -40,14 +40,14 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-            android:name=".base.BaseApplication"
+            android:name="com.ad.yeyoo.base.BaseApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.ad.yeyoo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,73 +64,77 @@
             </intent-filter>
         </activity>-->
         <activity
-                android:name=".comm.ConnectBaseActivity"
+                android:name="com.ad.yeyoo.comm.ConnectBaseActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ConnectBleActivity"
+                android:name="com.ad.yeyoo.comm.ConnectBleActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ConnectSppActivity"
+                android:name="com.ad.yeyoo.comm.ConnectSppActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ConnectRs232Activity"
+                android:name="com.ad.yeyoo.comm.ConnectRs232Activity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ConnectTcpActivity"
+                android:name="com.ad.yeyoo.comm.ConnectTcpActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ConnectHidActivity"
+                android:name="com.ad.yeyoo.comm.ConnectHidActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ConnectCdcActivity"
+                android:name="com.ad.yeyoo.comm.ConnectCdcActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".comm.ble.SppDeviceScanActivity"
+                android:name="com.ad.yeyoo.comm.ble.SppDeviceScanActivity"
                 android:configChanges="orientation|locale|keyboardHidden"
                 android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
 
         <activity
-                android:name=".comm.ble.BleDeviceScanActivity"
+                android:name="com.ad.yeyoo.comm.ble.BleDeviceScanActivity"
                 android:configChanges="orientation|locale|keyboardHidden"
                 android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
 
         <activity
-                android:name=".ProtocolActivity"
+                android:name="com.ad.yeyoo.ProtocolActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".mm.MMMainActivity"
+                android:name="com.ad.yeyoo.mm.MMMainActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
         <activity
-                android:name=".mm.MMDemoActivity"
+                android:name="com.ad.yeyoo.mm.MMDemoActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
         <activity
-                android:name=".mm.MMISO6CActivity"
+                android:name="com.ad.yeyoo.mm.MMISO6CActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
         <activity
-                android:name=".mm.MMParaActivity"
+                android:name="com.ad.yeyoo.mm.MMParaActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
         <activity
-                android:name=".mm.MMSeniorActivity"
+                android:name="com.ad.yeyoo.mm.MMSeniorActivity"
                 android:windowSoftInputMode="adjustPan"></activity>
         <activity
-                android:name=".business.BusinessRelationActivity"
+                android:name="com.ad.yeyoo.business.BusinessRelationActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar"
                 android:windowSoftInputMode="adjustPan"></activity>
         <activity
-                android:name=".business.BusinessGongxuActivity"
+                android:name="com.ad.yeyoo.business.BusinessGongxuActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar"
                 android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name="com.ad.yeyoo.business.BusinessChukuActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar"
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <activity
-                android:name=".business.BusinessMainActivity"
+                android:name="com.ad.yeyoo.business.BusinessMainActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar"
                 android:windowSoftInputMode="adjustPan"></activity>
 
