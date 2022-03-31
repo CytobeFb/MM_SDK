@@ -93,6 +93,7 @@ public class BusinessRelationActivity extends Activity {
     private ListView lv_data;
     private DataGridView mDataGridView;
     private TextView tv_scan;
+    private EditText ed_order;
     private TextView tv_titel;
     private TextView tv_ensure,tv_cancel;
     private ArrayList<TagID> mTagIDArrayList = new ArrayList<TagID>();
@@ -156,17 +157,6 @@ public class BusinessRelationActivity extends Activity {
                         changeAutoRead2();
                     }
                     break;
-                case R.id.tv_titel:
-                    if (!mTagIDArrayList.isEmpty()) {
-                        String ids="";
-                        for (int i=0;i<mTagIDArrayList.size();i++){
-                            ids+=getShortTag(mTagIDArrayList.get(i).getEpc())+",";
-                        }
-                        ids=ids.substring(0,ids.length()-1);
-                        getLabelForGoods(ids);
-                    }
-//                    getLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
-                    break;
                 case R.id.tv_ensure:
                     if (!mTagIDArrayList.isEmpty()) {
                         String ids="";
@@ -174,7 +164,7 @@ public class BusinessRelationActivity extends Activity {
                             ids+=getShortTag(mTagIDArrayList.get(i).getEpc())+",";
                         }
                         ids=ids.substring(0,ids.length()-1);
-                        confirmOrderForGoods(ids,"d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
+                        confirmOrderForGoods(ids,ed_order.getText().toString());
                     }
 //                    confirmOrderForGoods("0000090000000002EBFB06BC,000008000000000000000000","d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
                     break;
@@ -272,6 +262,7 @@ public class BusinessRelationActivity extends Activity {
         lv_data=findViewById(R.id.lv_data);
         mDataGridView = findViewById(R.id.datagridview);
         tv_scan=findViewById(R.id.tv_scan);
+        ed_order=findViewById(R.id.ed_order);
         tv_ensure=findViewById(R.id.tv_ensure);
         tv_cancel=findViewById(R.id.tv_cancel);
         mStoptagTextView = (EditText) findViewById(R.id.listitem_counttag_value);
@@ -282,6 +273,19 @@ public class BusinessRelationActivity extends Activity {
         tv_titel.setOnClickListener(onClickListener);
         tv_ensure.setOnClickListener(onClickListener);
         tv_cancel.setOnClickListener(onClickListener);
+
+        ed_order.setOnFocusChangeListener(new android.view.View.
+                OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+                    ed_order.setText("");
+                } else {
+                    // 此处为失去焦点时的处理内容
+                }
+            }
+        });
 
         mBaseCommand = (TextView) findViewById(R.id.base_button_identify);
 
@@ -326,7 +330,7 @@ public class BusinessRelationActivity extends Activity {
             }
         });
 */
-        new Handler().postDelayed(new Runnable() {
+        /*new Handler().postDelayed(new Runnable() {
             public void run() {
                 try {
                     Command(RcpMM.RCP_MM_PARA, RcpBase.RCP_MSG_GET);
@@ -335,7 +339,7 @@ public class BusinessRelationActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        }, 100);
+        }, 100);*/
         changeAutoRead2();
     }
 
@@ -355,6 +359,8 @@ public class BusinessRelationActivity extends Activity {
         baseinfo_init();
 
         initUI();
+
+        auto();
 
         initShortTagUI();
     }
@@ -381,6 +387,32 @@ public class BusinessRelationActivity extends Activity {
         super.onDestroy();
     }
 
+    public void auto(){
+        if (mWorkType == 0) {
+            mReadAuto = !mReadAuto;
+            changeAutoRead2();
+            mSingleRead = false;
+            if (mReadAuto) {
+                ClearList();
+                try {
+                    mReadStopCount = Integer.parseInt(mStoptagTextView.getText().toString());
+                } catch (Exception e) {
+                    mReadStopCount = 1;
+                }
+                hmR = new RecvRunnable(mReadStopCount);
+                Thread t = new Thread(hmR);
+                t.start();
+            } else {
+                if (hmR != null) hmR.stop();
+            }
+        } else if (mWorkType == 1) {
+            mReadAuto = !mReadAuto;
+
+            Command(RcpMM.RCP_MM_CTRL_AUTO_READ, RcpBase.RCP_MSG_CMD, new byte[]{(byte) (mReadAuto ? 1 : 0)});
+            changeAutoRead2();
+        }
+    }
+
     private void changeWorkMode(final int workmode, final int commmode) {
         mBaseCommand.post(new Runnable() {
             @Override
@@ -388,10 +420,10 @@ public class BusinessRelationActivity extends Activity {
                 mWorkType = workmode;
                 if (mWorkType == 0) {
                     mReadAuto = false;
-                    changeAutoRead();
+                    changeAutoRead2();
                 } else if (mWorkType == 1) {
                     mReadAuto = true;
-                    changeAutoRead();
+                    changeAutoRead2();
                 }
             }
         });

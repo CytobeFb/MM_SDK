@@ -326,7 +326,7 @@ public class BusinessChukuActivity extends Activity {
             }
         });
 */
-        new Handler().postDelayed(new Runnable() {
+        /*new Handler().postDelayed(new Runnable() {
             public void run() {
                 try {
                     Command(RcpMM.RCP_MM_PARA, RcpBase.RCP_MSG_GET);
@@ -335,7 +335,7 @@ public class BusinessChukuActivity extends Activity {
                     e.printStackTrace();
                 }
             }
-        }, 100);
+        }, 100);*/
         changeAutoRead2();
     }
 
@@ -355,6 +355,8 @@ public class BusinessChukuActivity extends Activity {
         baseinfo_init();
 
         initUI();
+
+        auto();
 
         initShortTagUI();
     }
@@ -379,6 +381,32 @@ public class BusinessChukuActivity extends Activity {
         // TODO Auto-generated method stub
         if (hmR != null) hmR.stop();
         super.onDestroy();
+    }
+
+    public void auto(){
+        if (mWorkType == 0) {
+            mReadAuto = !mReadAuto;
+            changeAutoRead2();
+            mSingleRead = false;
+            if (mReadAuto) {
+                ClearList();
+                try {
+                    mReadStopCount = Integer.parseInt(mStoptagTextView.getText().toString());
+                } catch (Exception e) {
+                    mReadStopCount = 1;
+                }
+                hmR = new RecvRunnable(mReadStopCount);
+                Thread t = new Thread(hmR);
+                t.start();
+            } else {
+                if (hmR != null) hmR.stop();
+            }
+        } else if (mWorkType == 1) {
+            mReadAuto = !mReadAuto;
+
+            Command(RcpMM.RCP_MM_CTRL_AUTO_READ, RcpBase.RCP_MSG_CMD, new byte[]{(byte) (mReadAuto ? 1 : 0)});
+            changeAutoRead2();
+        }
     }
 
     private void changeWorkMode(final int workmode, final int commmode) {

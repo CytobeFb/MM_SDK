@@ -27,8 +27,15 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
                 android:textSize="18sp"
-                android:text="扫描" />
+                android:text="扫描标签" />
     </RelativeLayout>
+
+    <EditText
+        android:id="@+id/ed_order"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:singleLine="true"
+        android:hint="请扫描二维码获取订单号"></EditText>
 
     <ScrollView
             android:layout_width="match_parent"

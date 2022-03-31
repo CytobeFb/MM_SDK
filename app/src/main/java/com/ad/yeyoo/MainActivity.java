@@ -91,8 +91,8 @@ public class MainActivity extends Activity {
                 case R.id.main_connect_name:
                     //Get base information-获取基本信息
 //                    Command(RcpBase.RCP_CMD_INFO, RcpBase.RCP_MSG_GET);
-                    mSioBase2 = new SioCom();
-                    mSioBase2.setOnCommListener(onCommListener);
+//                    mSioBase2 = new SioCom();
+//                    mSioBase2.setOnCommListener(onCommListener);
                     mSioBase2.connect(PreferenceUtil.getPrefString(mContext, "comportName", "/dev/ttyS3"),
                             PreferenceUtil.getPrefInt(mContext, "baudrateName", 57600));
                     break;
@@ -140,6 +140,11 @@ public class MainActivity extends Activity {
         mMainEnter = findViewById(R.id.main_enter_name);
         mMainConnect.setOnClickListener(onClickListener);
         mMainEnter.setOnClickListener(onClickListener);
+
+        mSioBase2 = new SioCom();
+        mSioBase2.setOnCommListener(onCommListener);
+        mSioBase2.connect(PreferenceUtil.getPrefString(mContext, "comportName", "/dev/ttyS3"),
+                PreferenceUtil.getPrefInt(mContext, "baudrateName", 57600));
 //        baseinfo_init();
     }
 
