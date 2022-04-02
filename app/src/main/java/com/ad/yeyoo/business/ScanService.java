@@ -3,6 +3,7 @@ package com.ad.yeyoo.business;
 import android.accessibilityservice.AccessibilityService;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toast;
@@ -51,6 +52,7 @@ public class ScanService extends AccessibilityService {
 
             @Override
             public void onScanFinish(String scanResult) {
+                Log.e("11111","1");
                 if (!TextUtils.isEmpty(scanResult)) {
 
                     Toast.makeText(ScanService.this.getBaseContext(),

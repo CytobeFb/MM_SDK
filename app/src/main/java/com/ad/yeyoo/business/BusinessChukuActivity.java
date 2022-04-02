@@ -279,6 +279,7 @@ public class BusinessChukuActivity extends Activity {
         tv_scan=findViewById(R.id.tv_scan);
         tv_ensure=findViewById(R.id.tv_ensure);
         tv_cancel=findViewById(R.id.tv_cancel);
+        tv_chengpinchuku=findViewById(R.id.tv_chengpinchuku);
         mStoptagTextView = (EditText) findViewById(R.id.listitem_counttag_value);
         mMaxtagTextView = (TextView) findViewById(R.id.listitem_maxtag_value);
         mBaseClear = (TextView) findViewById(R.id.base_button_clear);

@@ -30,13 +30,14 @@
                 android:text="扫描标签" />
     </RelativeLayout>
 
-    <TextView
-            android:id="@+id/tv_order"
+    <EditText
+            android:id="@+id/ed_order"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="1dp"
             android:singleLine="true"
-            android:visibility="gone"
-            android:gravity="center_vertical"></TextView>
+        android:imeOptions="actionSearch"
+        android:background="@null"
+            android:gravity="center_vertical"></EditText>
 
     <ScrollView
             android:layout_width="match_parent"

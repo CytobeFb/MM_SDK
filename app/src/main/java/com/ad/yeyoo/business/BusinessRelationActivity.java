@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -95,7 +96,7 @@ public class BusinessRelationActivity extends Activity {
     private ListView lv_data;
     private DataGridView mDataGridView;
     private TextView tv_scan;
-    private TextView tv_order;
+    private EditText ed_order;
     private TextView tv_titel;
     private TextView tv_ensure,tv_cancel;
     private ArrayList<TagID> mTagIDArrayList = new ArrayList<TagID>();
@@ -265,7 +266,7 @@ public class BusinessRelationActivity extends Activity {
         lv_data=findViewById(R.id.lv_data);
         mDataGridView = findViewById(R.id.datagridview);
         tv_scan=findViewById(R.id.tv_scan);
-        tv_order=findViewById(R.id.tv_order);
+        ed_order=findViewById(R.id.ed_order);
         tv_ensure=findViewById(R.id.tv_ensure);
         tv_cancel=findViewById(R.id.tv_cancel);
         mStoptagTextView = (EditText) findViewById(R.id.listitem_counttag_value);
@@ -277,16 +278,41 @@ public class BusinessRelationActivity extends Activity {
         tv_ensure.setOnClickListener(onClickListener);
         tv_cancel.setOnClickListener(onClickListener);
 
-        mScanGun = new ScanGun(new ScanGun.ScanGunCallBack() {
+        ed_order.setOnFocusChangeListener(new android.view.View.
+                OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // 此处为得到焦点时的处理内容
+//                    ed_order.setText("");
+                } else {
+                    // 此处为失去焦点时的处理内容
+                }
+            }
+        });
+
+        ed_order.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                    //隐藏软键盘
+                    orderId=ed_order.getText().toString();
+                    ed_order.setText("");
+                }
+                return false;
+            }
+        });
+
+        /*mScanGun = new ScanGun(new ScanGun.ScanGunCallBack() {
 
             @Override
             public void onScanFinish(String scanResult) {
                 if (!TextUtils.isEmpty(scanResult)) {
                     orderId=scanResult;
-                    tv_order.setText(scanResult);
+                    ed_order.setText(scanResult);
                 }
             }
-        });
+        });*/
 
         mBaseCommand = (TextView) findViewById(R.id.base_button_identify);
 
