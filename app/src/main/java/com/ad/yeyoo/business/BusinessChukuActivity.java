@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +13,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ad.rcp.OnProtocolListener;
+import com.ad.rcp.ProtocolEventArg;
+import com.ad.rcp.ProtocolPacket;
+import com.ad.rcp.RcpBase;
+import com.ad.rcp.RcpMM;
+import com.ad.rcp.TagID;
+import com.ad.sio.OnCommListener;
+import com.ad.sio.SioBase;
+import com.ad.sio.StatusEventArg;
 import com.ad.yeyoo.PubDemoParaActivity;
 import com.ad.yeyoo.R;
 import com.ad.yeyoo.base.BaseApplication;
@@ -25,15 +33,6 @@ import com.ad.yeyoo.utils.PreferenceUtil;
 import com.ad.yeyoo.utils.SoundPoolUtil;
 import com.ad.yeyoo.utils.UrlUtils;
 import com.ad.yeyoo.utils.WakeLockUtil;
-import com.ad.rcp.OnProtocolListener;
-import com.ad.rcp.ProtocolEventArg;
-import com.ad.rcp.ProtocolPacket;
-import com.ad.rcp.RcpBase;
-import com.ad.rcp.RcpMM;
-import com.ad.rcp.TagID;
-import com.ad.sio.OnCommListener;
-import com.ad.sio.SioBase;
-import com.ad.sio.StatusEventArg;
 import com.google.gson.Gson;
 import com.lingber.mycontrol.datagridview.DataGridView;
 import com.lzy.okgo.OkGo;
@@ -91,13 +90,15 @@ public class BusinessChukuActivity extends Activity {
     private TextView mStoptagTextView;
     private ListView mDataListView;
     private ListView lv_data;
-    private DataGridView mDataGridView;
+    private DataGridView mDataGridView1;
+    private DataGridView mDataGridView2;
     private TextView tv_scan;
     private TextView tv_titel;
-    private TextView tv_ensure,tv_cancel;
+    private TextView tv_ensure,tv_cancel,tv_chengpinchuku;
     private ArrayList<TagID> mTagIDArrayList = new ArrayList<TagID>();
     private ArrayList<Map<String, Object>> mDataListMap;
     private List<RelationListBean.DataBean> relationList=new ArrayList<>();
+    private List<RelationListBean.DataBean> daifaList=new ArrayList<>();
     private RecvRunnable hmR = null;
     //-------------------define function------------
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -156,7 +157,7 @@ public class BusinessChukuActivity extends Activity {
                         changeAutoRead2();
                     }
                     break;
-                case R.id.tv_titel:
+                /*case R.id.tv_titel:
                     if (!mTagIDArrayList.isEmpty()) {
                         String ids="";
                         for (int i=0;i<mTagIDArrayList.size();i++){
@@ -166,7 +167,7 @@ public class BusinessChukuActivity extends Activity {
                         getLabelForGoods(ids);
                     }
 //                    getLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
-                    break;
+                    break;*/
                 case R.id.tv_ensure:
                     if (!mTagIDArrayList.isEmpty()) {
                         String ids="";
@@ -176,7 +177,7 @@ public class BusinessChukuActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         confirmLabelForGoods(ids);
                     }
-//                    confirmOrderForGoods("0000090000000002EBFB06BC,000008000000000000000000","d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
+//                    confirmLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
                     break;
                 case R.id.tv_cancel:
                     if (!mTagIDArrayList.isEmpty()) {
@@ -187,7 +188,10 @@ public class BusinessChukuActivity extends Activity {
                         ids=ids.substring(0,ids.length()-1);
                         cancelLabelForGoods(ids);
                     }
-//                    cancelOrderForGoods("000008000000000000000000");
+//                    cancelLabelForGoods("000008000000000000000000");
+                    break;
+                case R.id.tv_chengpinchuku:
+                    chengpingChukuLabelForGoods();
                     break;
             }
         }
@@ -270,7 +274,8 @@ public class BusinessChukuActivity extends Activity {
     private void initUI() {
         tv_titel=findViewById(R.id.tv_titel);
         lv_data=findViewById(R.id.lv_data);
-        mDataGridView = findViewById(R.id.datagridview);
+        mDataGridView1 = findViewById(R.id.datagridview1);
+        mDataGridView2 = findViewById(R.id.datagridview2);
         tv_scan=findViewById(R.id.tv_scan);
         tv_ensure=findViewById(R.id.tv_ensure);
         tv_cancel=findViewById(R.id.tv_cancel);
@@ -282,6 +287,7 @@ public class BusinessChukuActivity extends Activity {
         tv_titel.setOnClickListener(onClickListener);
         tv_ensure.setOnClickListener(onClickListener);
         tv_cancel.setOnClickListener(onClickListener);
+        tv_chengpinchuku.setOnClickListener(onClickListener);
 
         mBaseCommand = (TextView) findViewById(R.id.base_button_identify);
 
@@ -290,25 +296,43 @@ public class BusinessChukuActivity extends Activity {
         mDataListView = (ListView) findViewById(R.id.demo_listvalue);
 
         // 设置列数
-        mDataGridView.setColunms(6);
+        mDataGridView1.setColunms(6);
         // 设置表头内容
-        mDataGridView.setHeaderContentByStringId(new int[]{R.string.colom1, R.string.colom2, R.string.colom3
+        mDataGridView1.setHeaderContentByStringId(new int[]{R.string.colom1, R.string.colom2_2, R.string.colom3
                 , R.string.colom4, R.string.colom5, R.string.colom6});
         // 绑定字段
-        mDataGridView.setFieldNames(new String[]{"rowNumber","tagName","kuanhao","productName","color","guige"});
+        mDataGridView1.setFieldNames(new String[]{"rowNumber","custName","kuanhao","productName","color","guige"});
         // 每个column占比
-        mDataGridView.setColunmWeight(new float[]{1,2,2,3,2,2});
+        mDataGridView1.setColunmWeight(new float[]{1,2,2,3,2,2});
         // 每个单元格包含控件
-        mDataGridView.setCellContentView(new Class[]{TextView.class, TextView.class, TextView.class, TextView.class, TextView.class, TextView.class});
+        mDataGridView1.setCellContentView(new Class[]{TextView.class, TextView.class, TextView.class, TextView.class, TextView.class, TextView.class});
         // 设置数据源
-        mDataGridView.setDataSource(relationList);
+        mDataGridView1.setDataSource(relationList);
         // 单行选中模式
-        mDataGridView.setSelectedMode(1);
-        mDataGridView.setHeaderHeight(48);
-        // 启用翻页
-//        mDataGridView.setFlipOverEnable(true, 9, getFragmentManager());
+        mDataGridView1.setSelectedMode(1);
+        mDataGridView1.setHeaderHeight(48);
         // 初始化表格
-        mDataGridView.initDataGridView();
+        mDataGridView1.initDataGridView();
+
+
+        // 设置列数
+        mDataGridView2.setColunms(7);
+        // 设置表头内容
+        mDataGridView2.setHeaderContentByStringId(new int[]{R.string.colom1, R.string.colom2_2, R.string.colom3
+                , R.string.colom4, R.string.colom5, R.string.colom6,R.string.colom7});
+        // 绑定字段
+        mDataGridView2.setFieldNames(new String[]{"rowNumber","custName","kuanhao","productName","color","guige","goodsNum"});
+        // 每个column占比
+        mDataGridView2.setColunmWeight(new float[]{1,2,2,3,2,2,2});
+        // 每个单元格包含控件
+        mDataGridView2.setCellContentView(new Class[]{TextView.class, TextView.class, TextView.class, TextView.class, TextView.class, TextView.class,TextView.class});
+        // 设置数据源
+        mDataGridView2.setDataSource(daifaList);
+        // 单行选中模式
+        mDataGridView2.setSelectedMode(1);
+        mDataGridView2.setHeaderHeight(48);
+        // 初始化表格
+        mDataGridView2.initDataGridView();
 
 /*
         mDataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -355,6 +379,8 @@ public class BusinessChukuActivity extends Activity {
         baseinfo_init();
 
         initUI();
+
+        getDaifaLabelForGoods();
 
         auto();
 
@@ -761,8 +787,8 @@ public class BusinessChukuActivity extends Activity {
                                 for (int i=0;i<relationListBean.getData().size();i++){
                                     relationList.add(relationListBean.getData().get(i));
                                 }
-                                mDataGridView.setDataSource(relationList);
-                                mDataGridView.updateAll();
+                                mDataGridView1.setDataSource(relationList);
+                                mDataGridView1.updateAll();
                             }
                         }
                     });
@@ -823,6 +849,72 @@ public class BusinessChukuActivity extends Activity {
                                     ids=ids.substring(0,ids.length()-1);
                                     getLabelForGoods(ids);
                                 }
+                            }else {
+                                Toast.makeText(BusinessChukuActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
+
+    public void getDaifaLabelForGoods(){
+        daifaList=new ArrayList<>();
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setCanceledOnTouchOutside(false);
+        HttpParams params=new HttpParams();
+        if (BaseApplication.isNetworkAvailable(BusinessChukuActivity.this)) {
+            OkGo.<String>post(UrlUtils.DAIFA_CHUKU_FOR_GOODS)     // 请求方式和请求url
+                    .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
+                    .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
+                    .cacheMode(CacheMode.DEFAULT)    // 缓存模式，详细请看缓存介绍
+                    .params(params)
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onStart(Request<String, ? extends Request> request) {
+                            super.onStart(request);
+                            dialog.show();
+                        }
+
+                        @Override
+                        public void onSuccess(Response<String> response) {
+                            String s=response.body();
+                            dialog.dismiss();
+                            RelationListBean relationListBean = new Gson().fromJson(s, RelationListBean.class);
+                            if (relationListBean.isSuccess()){
+                                for (int i=0;i<relationListBean.getData().size();i++){
+                                    daifaList.add(relationListBean.getData().get(i));
+                                }
+                                mDataGridView2.setDataSource(daifaList);
+                                mDataGridView2.updateAll();
+                            }
+                        }
+                    });
+        }
+    }
+
+    public void chengpingChukuLabelForGoods(){
+        HttpParams params=new HttpParams();
+        if (BaseApplication.isNetworkAvailable(BusinessChukuActivity.this)) {
+            OkGo.<String>post(UrlUtils.CHENGPING_CHUKU_FOR_GOODS)     // 请求方式和请求url
+                    .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
+                    .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
+                    .cacheMode(CacheMode.DEFAULT)    // 缓存模式，详细请看缓存介绍
+                    .params(params)
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onSuccess(Response<String> response) {
+                            String s=response.body();
+                            CheckBean checkBean = new Gson().fromJson(s, CheckBean.class);
+                            if (checkBean.isSuccess()){
+                                /*if (!mTagIDArrayList.isEmpty()) {
+                                    String ids="";
+                                    for (int i=0;i<mTagIDArrayList.size();i++){
+                                        ids+=getShortTag(mTagIDArrayList.get(i).getEpc())+",";
+                                    }
+                                    ids=ids.substring(0,ids.length()-1);
+                                    getDaifaLabelForGoods();
+                                }*/
+                                getDaifaLabelForGoods();
                             }else {
                                 Toast.makeText(BusinessChukuActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
                             }

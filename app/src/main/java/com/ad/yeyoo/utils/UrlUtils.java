@@ -9,4 +9,6 @@ public class UrlUtils {
     public static final String CANCEL_GONGXU_FOR_GOODS=URL+"/cancelOrderCount.action";
     public static final String CONFIRM_CHUKU_FOR_GOODS=URL+"/saveLabelGoods.action";
     public static final String CANCEL_CHUKU_FOR_GOODS=URL+"/cancelLabelGoods.action";
+    public static final String DAIFA_CHUKU_FOR_GOODS=URL+"/queryDaifaLabelForGoods.action";
+    public static final String CHENGPING_CHUKU_FOR_GOODS=URL+"/saveChengpinchukudanByLabel.action";
 }

@@ -46,6 +46,24 @@ public class RelationListBean {
         private Integer rowNumber;
         private String tagName;
         private String productName;
+        private String custName;
+        private Integer goodsNum;
+
+        public String getCustName() {
+            return custName;
+        }
+
+        public void setCustName(String custName) {
+            this.custName = custName;
+        }
+
+        public Integer getGoodsNum() {
+            return goodsNum;
+        }
+
+        public void setGoodsNum(Integer goodsNum) {
+            this.goodsNum = goodsNum;
+        }
 
         public String getKuanhao() {
             return kuanhao;

@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +13,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ad.rcp.OnProtocolListener;
+import com.ad.rcp.ProtocolEventArg;
+import com.ad.rcp.ProtocolPacket;
+import com.ad.rcp.RcpBase;
+import com.ad.rcp.RcpMM;
+import com.ad.rcp.TagID;
+import com.ad.sio.OnCommListener;
+import com.ad.sio.SioBase;
+import com.ad.sio.StatusEventArg;
 import com.ad.yeyoo.PubDemoParaActivity;
 import com.ad.yeyoo.R;
 import com.ad.yeyoo.base.BaseApplication;
@@ -25,15 +33,6 @@ import com.ad.yeyoo.utils.PreferenceUtil;
 import com.ad.yeyoo.utils.SoundPoolUtil;
 import com.ad.yeyoo.utils.UrlUtils;
 import com.ad.yeyoo.utils.WakeLockUtil;
-import com.ad.rcp.OnProtocolListener;
-import com.ad.rcp.ProtocolEventArg;
-import com.ad.rcp.ProtocolPacket;
-import com.ad.rcp.RcpBase;
-import com.ad.rcp.RcpMM;
-import com.ad.rcp.TagID;
-import com.ad.sio.OnCommListener;
-import com.ad.sio.SioBase;
-import com.ad.sio.StatusEventArg;
 import com.google.gson.Gson;
 import com.lingber.mycontrol.datagridview.DataGridView;
 import com.lzy.okgo.OkGo;
@@ -158,7 +157,7 @@ public class BusinessGongxuActivity extends Activity {
                         changeAutoRead2();
                     }
                     break;
-                case R.id.tv_titel:
+                /*case R.id.tv_titel:
                     if (!mTagIDArrayList.isEmpty()) {
                         String ids="";
                         for (int i=0;i<mTagIDArrayList.size();i++){
@@ -168,7 +167,7 @@ public class BusinessGongxuActivity extends Activity {
                         getLabelForGoods(ids);
                     }
 //                    getLabelForGoods("0000090000000002EBFB06BC,000008000000000000000000");
-                    break;
+                    break;*/
                 case R.id.tv_ensure:
                     if (!mTagIDArrayList.isEmpty()) {
                         String ids="";

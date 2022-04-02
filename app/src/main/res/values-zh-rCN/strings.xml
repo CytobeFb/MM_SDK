@@ -153,10 +153,12 @@
 
     <string name="colom1">序号</string>
     <string name="colom2">标签</string>
+    <string name="colom2_2">客户</string>
     <string name="colom3">款号</string>
     <string name="colom4">品名</string>
     <string name="colom5">颜色</string>
     <string name="colom6">规格</string>
+    <string name="colom7">数量</string>
 
 
 </resources>

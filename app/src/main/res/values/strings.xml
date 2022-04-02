@@ -152,8 +152,10 @@
 
     <string name="colom1">xuhao</string>
     <string name="colom2">biaoqian</string>
+    <string name="colom2_2">kehu</string>
     <string name="colom3">kuanhao</string>
     <string name="colom4">pinming</string>
     <string name="colom5">yanse</string>
     <string name="colom6">guige</string>
+    <string name="colom7">shuliang</string>
 </resources>

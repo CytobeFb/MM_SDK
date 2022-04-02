@@ -8,7 +8,7 @@
         android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="金尊江禾制衣"
+            android:text="金尊汇禾制衣"
             android:textSize="36sp"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"

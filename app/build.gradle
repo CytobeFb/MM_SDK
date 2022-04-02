@@ -35,4 +35,5 @@ dependencies {
     implementation 'com.lzy.net:okgo:3.0.4'
     implementation 'com.github.Lingber:Android_DataGridView:1.01'
     implementation 'com.google.code.gson:gson:2.6.2'
+    implementation files('libs\\ChiceScanGun.jar')
 }

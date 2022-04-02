@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +14,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ad.rcp.OnProtocolListener;
+import com.ad.rcp.ProtocolEventArg;
+import com.ad.rcp.ProtocolPacket;
+import com.ad.rcp.RcpBase;
+import com.ad.rcp.RcpMM;
+import com.ad.rcp.TagID;
+import com.ad.sio.OnCommListener;
+import com.ad.sio.SioBase;
+import com.ad.sio.StatusEventArg;
 import com.ad.yeyoo.PubDemoParaActivity;
 import com.ad.yeyoo.R;
 import com.ad.yeyoo.base.BaseApplication;
@@ -25,15 +34,7 @@ import com.ad.yeyoo.utils.PreferenceUtil;
 import com.ad.yeyoo.utils.SoundPoolUtil;
 import com.ad.yeyoo.utils.UrlUtils;
 import com.ad.yeyoo.utils.WakeLockUtil;
-import com.ad.rcp.OnProtocolListener;
-import com.ad.rcp.ProtocolEventArg;
-import com.ad.rcp.ProtocolPacket;
-import com.ad.rcp.RcpBase;
-import com.ad.rcp.RcpMM;
-import com.ad.rcp.TagID;
-import com.ad.sio.OnCommListener;
-import com.ad.sio.SioBase;
-import com.ad.sio.StatusEventArg;
+import com.chice.scangun.ScanGun;
 import com.google.gson.Gson;
 import com.lingber.mycontrol.datagridview.DataGridView;
 import com.lzy.okgo.OkGo;
@@ -62,6 +63,7 @@ public class BusinessRelationActivity extends Activity {
     private TextView mBaseRes;
     private SioBase mSioBase;
     private RcpBase mRcpBase;
+    private ScanGun mScanGun = null;
     private OnCommListener onCommListener = new OnCommListener() {
 
         @Override
@@ -93,13 +95,14 @@ public class BusinessRelationActivity extends Activity {
     private ListView lv_data;
     private DataGridView mDataGridView;
     private TextView tv_scan;
-    private EditText ed_order;
+    private TextView tv_order;
     private TextView tv_titel;
     private TextView tv_ensure,tv_cancel;
     private ArrayList<TagID> mTagIDArrayList = new ArrayList<TagID>();
     private ArrayList<Map<String, Object>> mDataListMap;
     private List<RelationListBean.DataBean> relationList=new ArrayList<>();
     private RecvRunnable hmR = null;
+    private String orderId="";
     //-------------------define function------------
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         public void onClick(View v) {
@@ -164,7 +167,7 @@ public class BusinessRelationActivity extends Activity {
                             ids+=getShortTag(mTagIDArrayList.get(i).getEpc())+",";
                         }
                         ids=ids.substring(0,ids.length()-1);
-                        confirmOrderForGoods(ids,ed_order.getText().toString());
+                        confirmOrderForGoods(ids,orderId);
                     }
 //                    confirmOrderForGoods("0000090000000002EBFB06BC,000008000000000000000000","d7c8e7f9-cc9a-4ec1-b2b9-1cb17581266e");
                     break;
@@ -262,7 +265,7 @@ public class BusinessRelationActivity extends Activity {
         lv_data=findViewById(R.id.lv_data);
         mDataGridView = findViewById(R.id.datagridview);
         tv_scan=findViewById(R.id.tv_scan);
-        ed_order=findViewById(R.id.ed_order);
+        tv_order=findViewById(R.id.tv_order);
         tv_ensure=findViewById(R.id.tv_ensure);
         tv_cancel=findViewById(R.id.tv_cancel);
         mStoptagTextView = (EditText) findViewById(R.id.listitem_counttag_value);
@@ -274,15 +277,13 @@ public class BusinessRelationActivity extends Activity {
         tv_ensure.setOnClickListener(onClickListener);
         tv_cancel.setOnClickListener(onClickListener);
 
-        ed_order.setOnFocusChangeListener(new android.view.View.
-                OnFocusChangeListener() {
+        mScanGun = new ScanGun(new ScanGun.ScanGunCallBack() {
+
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    // 此处为得到焦点时的处理内容
-                    ed_order.setText("");
-                } else {
-                    // 此处为失去焦点时的处理内容
+            public void onScanFinish(String scanResult) {
+                if (!TextUtils.isEmpty(scanResult)) {
+                    orderId=scanResult;
+                    tv_order.setText(scanResult);
                 }
             }
         });

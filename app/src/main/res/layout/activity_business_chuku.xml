@@ -12,12 +12,12 @@
             android:layout_height="48dp">
 
         <TextView
-            android:id="@+id/tv_titel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="成品出库"
-            android:textSize="24sp" />
+                android:id="@+id/tv_titel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="成品出库"
+                android:textSize="24sp" />
 
         <TextView
                 android:id="@+id/tv_scan"
@@ -30,20 +30,110 @@
                 android:text="扫描" />
     </RelativeLayout>
 
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:scrollbars="none">
-
-        <com.lingber.mycontrol.datagridview.DataGridView
-                android:id="@+id/datagridview"
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:show_header="true"
-                app:row_height="48"
-                app:dividerSize="2"></com.lingber.mycontrol.datagridview.DataGridView>
-    </ScrollView>
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scrollbars="none">
+            <com.lingber.mycontrol.datagridview.DataGridView
+                    android:id="@+id/datagridview1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:show_header="true"
+                    app:row_height="48"
+                    app:dividerSize="2"></com.lingber.mycontrol.datagridview.DataGridView>
+                </ScrollView>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:gravity="center">
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                    <TextView
+                            android:id="@+id/tv_ensure"
+                            android:layout_width="96dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/business_button_selector"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:gravity="center"
+                            android:text="确定" />
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                    <TextView
+                            android:id="@+id/tv_cancel"
+                            android:layout_width="96dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/business_button_selector"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:gravity="center"
+                            android:text="取消" />
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scrollbars="none">
+            <com.lingber.mycontrol.datagridview.DataGridView
+                    android:id="@+id/datagridview2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:show_header="true"
+                    app:row_height="48"
+                    app:dividerSize="2"></com.lingber.mycontrol.datagridview.DataGridView>
+            </ScrollView>
+
+            <TextView
+                    android:id="@+id/tv_chengpinchuku"
+                    android:layout_width="96dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/business_button_selector"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:text="成品出库" />
+        </LinearLayout>
+        </LinearLayout>
 
     <ListView
             android:id="@+id/lv_data"
@@ -57,50 +147,6 @@
             android:visibility="gone"
             android:paddingLeft="@dimen/padding_05"
             android:paddingRight="@dimen/padding_05" />
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp"
-            android:gravity="center">
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content" />
-
-        <TextView
-                android:id="@+id/tv_ensure"
-                android:layout_width="96dp"
-                android:layout_height="48dp"
-                android:background="@drawable/business_button_selector"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:text="确定" />
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content" />
-
-        <TextView
-                android:id="@+id/tv_cancel"
-                android:layout_width="96dp"
-                android:layout_height="48dp"
-                android:background="@drawable/business_button_selector"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:text="取消" />
-
-        <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content" />
-
-    </LinearLayout>
 
     <RelativeLayout
             android:layout_width="match_parent"

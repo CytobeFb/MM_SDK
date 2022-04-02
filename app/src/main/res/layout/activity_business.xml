@@ -30,12 +30,12 @@
                 android:text="扫描标签" />
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/ed_order"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:singleLine="true"
-        android:hint="请扫描二维码获取订单号"></EditText>
+    <TextView
+            android:id="@+id/tv_order"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:singleLine="true"
+            android:gravity="center_vertical"></TextView>
 
     <ScrollView
             android:layout_width="match_parent"
