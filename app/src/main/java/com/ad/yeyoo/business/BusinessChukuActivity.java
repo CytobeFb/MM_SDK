@@ -817,6 +817,7 @@ public class BusinessChukuActivity extends Activity {
                                     }
                                     ids=ids.substring(0,ids.length()-1);
                                     getLabelForGoods(ids);
+                                    getDaifaLabelForGoods();
                                 }
                             }else {
                                 Toast.makeText(BusinessChukuActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
@@ -848,6 +849,7 @@ public class BusinessChukuActivity extends Activity {
                                     }
                                     ids=ids.substring(0,ids.length()-1);
                                     getLabelForGoods(ids);
+                                    getDaifaLabelForGoods();
                                 }
                             }else {
                                 Toast.makeText(BusinessChukuActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
