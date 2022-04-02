@@ -917,6 +917,7 @@ public class BusinessChukuActivity extends Activity {
                                     ids=ids.substring(0,ids.length()-1);
                                     getDaifaLabelForGoods();
                                 }*/
+                                Toast.makeText(BusinessChukuActivity.this,"成品出库成功",Toast.LENGTH_SHORT).show();
                                 getDaifaLabelForGoods();
                             }else {
                                 Toast.makeText(BusinessChukuActivity.this,checkBean.getMessage(),Toast.LENGTH_SHORT).show();
